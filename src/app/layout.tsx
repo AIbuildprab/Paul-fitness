@@ -49,10 +49,7 @@ export const metadata: Metadata = {
     description: site.description,
     images: ["/paul/paul-gym.jpg"],
   },
-  icons: {
-    icon: "/brand/Stamp_ProteinBronze.png",
-    apple: "/brand/Stamp_ProteinBronze.png",
-  },
+  // Icons come from the app/ file conventions: favicon.ico, icon.png, apple-icon.png.
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
