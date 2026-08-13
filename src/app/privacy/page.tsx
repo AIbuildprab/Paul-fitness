@@ -21,10 +21,10 @@ export default function PrivacyPage() {
             information and to let you get in touch. We do not sell your data.
           </p>
           <p>
-            If you send a message through the contact form, your name, email,
-            and message are used only to reply to you — typically by opening
-            WhatsApp or emailing {site.email}. We do not store form submissions
-            on this website.
+            If you send an enquiry or create an account, the details you provide
+            are used only to reply to you and set up your coaching — typically by
+            opening WhatsApp or emailing {site.email}. We do not store form
+            submissions on this website.
           </p>
           <p>
             This site may use basic hosting analytics from the platform that

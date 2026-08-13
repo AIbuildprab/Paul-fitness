@@ -26,12 +26,53 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keeps anchor targets clear of the sticky header. */
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {
   background: var(--ink);
   color: var(--paper);
   font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-tap-highlight-color: rgba(196, 163, 106, 0.2);
+}
+
+/* Reserves room for the mobile CTA bar plus the iOS home indicator. */
+.pb-cta {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 1024px) {
+  .pb-cta {
+    padding-bottom: 0;
+  }
+}
+
+.safe-bottom {
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 ::selection {

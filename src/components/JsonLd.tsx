@@ -9,7 +9,7 @@ export function JsonLd() {
         "@id": `${site.url}#business`,
         name: site.name,
         url: site.url,
-        image: `${site.url}/clients/1000037071.jpg`,
+        image: `${site.url}/paul/paul-gym.jpg`,
         telephone: site.phoneHref.replace("tel:", ""),
         email: site.email,
         address: {

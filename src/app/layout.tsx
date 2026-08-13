@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Oswald } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -10,12 +10,22 @@ import "./globals.css";
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
+  display: "swap",
 });
 
 const oswald = Oswald({
   subsets: ["latin"],
   variable: "--font-oswald",
+  display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  // Lets the sticky CTA bar sit correctly against the iOS home indicator.
+  viewportFit: "cover",
+  themeColor: "#0b0b0c",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -31,13 +41,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_GB",
     type: "website",
-    images: [{ url: "/clients/1000037071.jpg" }],
+    images: [{ url: "/paul/paul-gym.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
-    images: ["/clients/1000037071.jpg"],
+    images: ["/paul/paul-gym.jpg"],
   },
   icons: {
     icon: "/brand/Stamp_ProteinBronze.png",
@@ -51,7 +61,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en-GB"
       className={`${manrope.variable} ${oswald.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-ink font-sans text-paper">
+      <body className="flex min-h-full flex-col overflow-x-hidden bg-ink font-sans text-paper">
         <JsonLd />
         <Header />
         <main className="flex-1">{children}</main>

@@ -16,17 +16,12 @@ export const site = {
   location: "Leicester, UK",
   reviewsCount: 26,
   established: 2018,
+  responseTime: "Most enquiries are answered within 24 hours.",
 } as const;
 
 export const nav = [
-  { href: "/", label: "Home" },
   { href: "/coaching", label: "Coaching" },
   { href: "/results", label: "Results" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
-
-export const cta = {
-  primary: { href: site.whatsapp, label: "Book a strategy call", external: true },
-  whatsapp: { href: site.whatsapp, label: "WhatsApp me", external: true },
-} as const;

@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { nav, site } from "@/lib/site";
 import { Container } from "@/components/Container";
+import { nav, site } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-ink-2 pb-24 lg:pb-0">
+    <footer className="pb-cta border-t border-white/5 bg-ink-2">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2">
           <Image
@@ -17,11 +17,11 @@ export function Footer() {
           />
           <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
             Real coaching for real life. Training, nutrition, and mindset with
-            Paul McGann — in Leicester and online.
+            Paul McGann — in Leicester and online worldwide.
           </p>
           <Image
             src="/brand/Stamp_ProteinBronze.png"
-            alt="MFF 2018"
+            alt={`MFF established ${site.established}`}
             width={88}
             height={88}
             className="mt-6 h-16 w-16"
@@ -32,19 +32,22 @@ export function Footer() {
           <p className="font-display text-sm uppercase tracking-[0.22em] text-bronze">
             Explore
           </p>
-          <ul className="mt-4 space-y-2 text-sm text-paper/80">
-            {nav.map((item) => (
+          <ul className="mt-2 text-sm text-paper/80">
+            {[
+              { href: "/", label: "Home" },
+              ...nav,
+              { href: "/signup", label: "Sign up" },
+              { href: "/privacy", label: "Privacy" },
+            ].map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-bronze">
+                <Link
+                  href={item.href}
+                  className="inline-flex min-h-10 items-center hover:text-bronze"
+                >
                   {item.label}
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/privacy" className="hover:text-bronze">
-                Privacy
-              </Link>
-            </li>
           </ul>
         </div>
 
@@ -52,15 +55,21 @@ export function Footer() {
           <p className="font-display text-sm uppercase tracking-[0.22em] text-bronze">
             Contact
           </p>
-          <ul className="mt-4 space-y-2 text-sm text-paper/80">
-            <li>{site.location}</li>
+          <ul className="mt-2 text-sm text-paper/80">
+            <li className="flex min-h-10 items-center">{site.location}</li>
             <li>
-              <a href={site.phoneHref} className="hover:text-bronze">
+              <a
+                href={site.phoneHref}
+                className="inline-flex min-h-10 items-center hover:text-bronze"
+              >
                 {site.phoneDisplay}
               </a>
             </li>
             <li>
-              <a href={`mailto:${site.email}`} className="hover:text-bronze">
+              <a
+                href={`mailto:${site.email}`}
+                className="inline-flex min-h-10 items-center break-all hover:text-bronze"
+              >
                 {site.email}
               </a>
             </li>
@@ -69,7 +78,7 @@ export function Footer() {
                 href={site.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-bronze"
+                className="inline-flex min-h-10 items-center hover:text-bronze"
               >
                 Instagram
               </a>
@@ -79,7 +88,7 @@ export function Footer() {
                 href={site.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-bronze"
+                className="inline-flex min-h-10 items-center hover:text-bronze"
               >
                 WhatsApp
               </a>
