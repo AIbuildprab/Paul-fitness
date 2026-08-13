@@ -25,15 +25,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  const text = [
-    `Hi Paul, I'm ${name}.`,
-    `Email: ${email}`,
-    interest ? `Interested in: ${interest}` : "",
-    "",
-    message,
-  ]
-    .filter(Boolean)
-    .join("\n");
+  const lines = [`Hi Paul, I'm ${name}.`, `Email: ${email}`];
+  if (interest) {
+    lines.push(`Interested in: ${interest}`);
+  }
+  lines.push("", message);
+
+  const text = lines.join("\n");
 
   const whatsapp = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`;
 

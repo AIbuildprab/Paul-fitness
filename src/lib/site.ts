@@ -3,6 +3,7 @@ export const site = {
   short: "MFF",
   coach: "Paul McGann",
   tagline: "Transform Your Body & Life",
+  hero: "No BS. No guesswork. Just real coaching, real results.",
   description:
     "No BS. No guesswork. Just real coaching, real results. Personal training in Leicester and online coaching with Paul McGann.",
   url: "https://mindfullfoodfitness.com",

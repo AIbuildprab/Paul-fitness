@@ -35,9 +35,7 @@ export default function HomePage() {
               Transform Your
               <span className="block text-bronze">Body & Life</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-paper/80">
-              {site.description.split(" Personal")[0]}
-            </p>
+            <p className="mt-6 max-w-xl text-lg text-paper/80">{site.hero}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href={site.whatsapp} external>
                 Book a strategy call
