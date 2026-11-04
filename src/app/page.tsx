@@ -576,15 +576,23 @@ export default function HomePage() {
         }}
       >
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#FAFAFA]/65" />
-        <Reveal className="relative mx-auto w-full max-w-3xl px-5 text-center sm:px-8">
-          <div className="flex justify-center">
-            <Kicker>Start with the free guide</Kicker>
-          </div>
-          <h2 className="mt-3 text-4xl font-black">
-            High protein <span className="text-gold">Indian vegan</span> recipe book
-          </h2>
-          <GuideForm />
-        </Reveal>
+        <div className="relative mx-auto w-full max-w-3xl px-5 text-center sm:px-8">
+          <Reveal>
+            <div className="flex justify-center">
+              <Kicker className="!text-lg" iconClassName="h-6 w-6">
+                Start with the free guide
+              </Kicker>
+            </div>
+          </Reveal>
+          <Reveal from="pop" delay={90}>
+            <h2 className="mt-3 text-4xl font-black">
+              High protein <span className="text-gold">Indian vegan</span> recipe book
+            </h2>
+          </Reveal>
+          <Reveal delay={160}>
+            <GuideForm />
+          </Reveal>
+        </div>
       </section>
 
       <section id="contact" className="bg-white px-4 py-16 sm:px-8 sm:py-20">

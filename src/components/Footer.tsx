@@ -44,19 +44,19 @@ export function Footer() {
           <h2 className="text-lg font-extrabold text-gold">Quick Links</h2>
           <div className="mt-3 h-px w-10 bg-gold" />
           <div className="mt-4 grid w-max grid-cols-2 gap-x-10">
-            <ul className="space-y-2 text-sm text-white/85">
+            <ul className="space-y-0.5 text-sm text-white/85">
               {left.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="inline-flex py-0.5 hover:text-gold">
+                  <Link href={item.href} className="inline-flex hover:text-gold">
                     {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <ul className="space-y-2 text-sm text-white/85">
+            <ul className="space-y-0.5 text-sm text-white/85">
               {right.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="inline-flex py-0.5 hover:text-gold">
+                  <Link href={item.href} className="inline-flex hover:text-gold">
                     {item.label}
                   </Link>
                 </li>

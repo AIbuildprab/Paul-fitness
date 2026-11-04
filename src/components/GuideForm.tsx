@@ -57,7 +57,7 @@ export function GuideForm() {
           {message}
         </p>
       ) : (
-        <p className="basis-full text-sm text-neutral-500">You’ll also get my emails. Unsubscribe any time.</p>
+        <p className="basis-full text-sm text-neutral-500">“You’ll also get my emails. Unsubscribe any time.”</p>
       )}
     </form>
   );

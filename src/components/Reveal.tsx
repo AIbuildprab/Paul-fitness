@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 
-type From = "up" | "down" | "left" | "right" | "in" | "zoom";
+type From = "up" | "down" | "left" | "right" | "in" | "zoom" | "pop";
 
 export function Reveal({
   children,

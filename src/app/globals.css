@@ -45,6 +45,7 @@ html {
   .rise-wait {
     opacity: 1;
   }
+
 }
 
 body {
@@ -115,6 +116,14 @@ body {
   color: #fff;
 }
 
+.promise-photo {
+  top: 0;
+  left: calc(var(--promise-left, 0px) * -1);
+  width: 100vw;
+  height: calc(var(--promise-vh, 100vh) + 8px);
+  background-position: right 48px;
+}
+
 .font-display {
   font-family: var(--font-display), var(--font-sans), sans-serif;
   font-weight: 800;
@@ -153,6 +162,12 @@ body {
 
 .rise-zoom {
   animation-name: rise-zoom;
+}
+
+.rise.rise-pop {
+  animation-name: rise-pop;
+  animation-duration: 0.85s;
+  animation-timing-function: cubic-bezier(0.2, 0.85, 0.25, 1);
 }
 
 @keyframes rise-up {
@@ -214,6 +229,21 @@ body {
     transform: scale(0.94);
   }
   to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise-pop {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -46px, 0) scale(0.92);
+  }
+  62% {
+    opacity: 1;
+    transform: translate3d(0, 5px, 0) scale(1.035);
+  }
+  100% {
     opacity: 1;
     transform: none;
   }
