@@ -9,7 +9,7 @@ export function JsonLd() {
         "@id": `${site.url}#business`,
         name: site.name,
         url: site.url,
-        image: `${site.url}/paul/paul-gym.jpg`,
+        image: `${site.url}/mff/hero-bg.webp`,
         telephone: site.phoneHref.replace("tel:", ""),
         email: site.email,
         address: {
@@ -17,8 +17,8 @@ export function JsonLd() {
           addressLocality: "Leicester",
           addressCountry: "GB",
         },
-        priceRange: "££",
-        sameAs: [site.instagram],
+        priceRange: "£750–£2750",
+        sameAs: [site.instagram, site.facebook, site.youtube],
       },
       {
         "@type": "Person",

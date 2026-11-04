@@ -22,7 +22,7 @@ const steps = [
 export default function SignupPage() {
   return (
     <>
-      <section className="py-14 sm:py-20">
+      <section className="bg-ink py-14 text-paper sm:py-20">
         <Container className="grid gap-12 lg:grid-cols-[1.05fr_1fr]">
           <div>
             <Eyebrow>Start today</Eyebrow>
@@ -32,7 +32,7 @@ export default function SignupPage() {
             <p className="mt-5 max-w-lg text-muted">
               One account for your training, nutrition, check-ins, and progress.
               Not sure which plan fits?{" "}
-              <Link href="/coaching" className="text-bronze hover:text-bronze-2">
+              <Link href="/#pricing" className="text-bronze hover:text-bronze-2">
                 Compare the plans first
               </Link>
               .
@@ -93,7 +93,7 @@ export default function SignupPage() {
                 WhatsApp
               </a>{" "}
               or use the{" "}
-              <Link href="/contact" className="text-bronze hover:text-bronze-2">
+              <Link href="/#contact" className="text-bronze hover:text-bronze-2">
                 enquiry form
               </Link>
               .

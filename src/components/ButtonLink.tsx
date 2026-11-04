@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 const styles = {
   primary:
-    "bg-bronze text-ink hover:bg-bronze-2 shadow-[0_0_0_1px_rgba(196,163,106,0.3)]",
+    "bg-gold text-white hover:bg-gold-2",
   secondary:
     "border border-bronze/70 text-bronze hover:bg-bronze/10 hover:border-bronze",
   ghost: "text-paper/90 hover:text-bronze",

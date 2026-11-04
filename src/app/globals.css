@@ -2,32 +2,31 @@
 
 :root {
   --ink: #0b0b0c;
-  --ink-2: #121214;
-  --ink-3: #1b1b1e;
-  --paper: #f4f1ea;
-  --muted: #a8a29a;
-  --bronze: #c4a36a;
-  --bronze-2: #d8b87c;
-  --line: rgba(196, 163, 106, 0.22);
+  --ink-2: #202020;
+  --paper: #f7f4ee;
+  --muted: #5c574f;
+  --gold: #a68d41;
+  --gold-2: #c4ad62;
+  --line: rgba(166, 141, 65, 0.35);
 }
 
 @theme inline {
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
-  --color-ink-3: var(--ink-3);
   --color-paper: var(--paper);
   --color-muted: var(--muted);
-  --color-bronze: var(--bronze);
-  --color-bronze-2: var(--bronze-2);
+  --color-gold: var(--gold);
+  --color-gold-2: var(--gold-2);
+  --color-bronze: var(--gold);
+  --color-bronze-2: var(--gold-2);
   --color-line: var(--line);
   --font-sans: var(--font-manrope);
-  --font-display: var(--font-oswald);
+  --font-display: var(--font-manrope);
 }
 
 html {
   scroll-behavior: smooth;
-  /* Keeps anchor targets clear of the sticky header. */
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 7rem;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -42,16 +41,19 @@ html {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+
+  .rise-wait {
+    opacity: 1;
+  }
 }
 
 body {
-  background: var(--ink);
-  color: var(--paper);
+  background: #fff;
+  color: #1a1a1a;
   font-family: var(--font-sans), system-ui, sans-serif;
-  -webkit-tap-highlight-color: rgba(196, 163, 106, 0.2);
+  -webkit-tap-highlight-color: rgba(166, 141, 65, 0.25);
 }
 
-/* Reserves room for the mobile CTA bar plus the iOS home indicator. */
 .pb-cta {
   padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
 }
@@ -76,20 +78,144 @@ body {
 }
 
 ::selection {
-  background: var(--bronze);
-  color: var(--ink);
+  background: var(--gold);
+  color: #fff;
 }
 
 .font-display {
   font-family: var(--font-display), var(--font-sans), sans-serif;
-  letter-spacing: 0.04em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
-.hairline {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--bronze),
-    transparent
-  );
+.rise-wait {
+  opacity: 0;
+}
+
+.rise {
+  animation-duration: 0.85s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.rise-up {
+  animation-name: rise-up;
+}
+
+.rise-down {
+  animation-name: rise-down;
+}
+
+.rise-left {
+  animation-name: rise-left;
+}
+
+.rise-right {
+  animation-name: rise-right;
+}
+
+.rise-in {
+  animation-name: rise-in;
+}
+
+.rise-zoom {
+  animation-name: rise-zoom;
+}
+
+@keyframes rise-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 36px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -28px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise-left {
+  from {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise-right {
+  from {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-pop {
+  animation: hero-pop 0.7s cubic-bezier(0.2, 0.85, 0.2, 1) both;
+}
+
+.hero-phone-in {
+  animation: hero-phone-in 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes hero-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.045);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-phone-in {
+  from {
+    opacity: 0;
+    transform: translate3d(62vw, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

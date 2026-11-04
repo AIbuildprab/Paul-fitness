@@ -1,408 +1,518 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ButtonLink } from "@/components/ButtonLink";
-import { Container, Eyebrow } from "@/components/Container";
-import { FaqList } from "@/components/FaqList";
-import { SectionHeading } from "@/components/SectionHeading";
-import { TransformationRail } from "@/components/TransformationRail";
+import { BeforeAfter } from "@/components/BeforeAfter";
+import { btnGold, btnOutline, Kicker } from "@/components/Brand";
+import { ContactForm } from "@/components/ContactForm";
+import { GuideForm } from "@/components/GuideForm";
+import { HeroMotion } from "@/components/HeroMotion";
+import { PhaseTabs } from "@/components/PhaseTabs";
+import { PromiseCard } from "@/components/PromiseCard";
+import { Reveal } from "@/components/Reveal";
+import { ReviewCarousel } from "@/components/ReviewCarousel";
 import {
-  appFeatures,
-  offers,
-  pillars,
-  problems,
-  reviews,
-  story,
+  gallery,
+  galleryVideos,
+  included,
+  inPersonIncludes,
+  nutritionPoints,
+  packages,
+  promisePoints,
+  roadmap,
+  spotlightQuotes,
 } from "@/lib/content";
 import { site } from "@/lib/site";
-
-const stats = [
-  { value: "26", label: "5-star Google reviews" },
-  { value: "2018", label: "Coaching since" },
-  { value: "17 yrs", label: "As a professional chef" },
-  { value: "Leicester", label: "In person + online worldwide" },
-];
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative isolate overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "radial-gradient(65% 70% at 78% 38%, rgba(196,163,106,0.16), transparent 70%)",
-          }}
-        />
+      <HeroMotion />
 
-        <Container className="py-14 sm:py-20 lg:py-24">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-bronze/40 bg-ink/60 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-bronze">
-                {site.coach} · {site.location}
-              </span>
-              <h1 className="font-display mt-5 text-[2.6rem] uppercase leading-[0.9] sm:text-6xl lg:text-7xl">
-                Transform your
-                <span className="block text-bronze">body &amp; life</span>
-              </h1>
-              <p className="mt-6 max-w-lg text-lg leading-relaxed text-paper/85">
-                {site.hero} Training, nutrition, and mindset built around your
-                life — not someone else’s template.
-              </p>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <ButtonLink href="/coaching">View coaching plans</ButtonLink>
-                <ButtonLink href="/signup" variant="secondary">
-                  Sign up now
-                </ButtonLink>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div
-                aria-hidden
-                className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-bronze/20 via-transparent to-transparent blur-2xl"
-              />
-              <Image
-                src="/paul/paul-gym.jpg"
-                alt="Paul McGann, personal trainer in Leicester"
-                width={1706}
-                height={2560}
-                priority
-                className="relative max-h-[48dvh] w-full rounded-3xl object-cover object-top sm:max-h-[60dvh] lg:max-h-[72dvh]"
-                sizes="(max-width: 1024px) 100vw, 45vw"
-              />
-              <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-bronze/25" />
-            </div>
-          </div>
-
-          <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-7 border-t border-white/10 pt-8 sm:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <dt className="font-display text-2xl text-bronze sm:text-3xl">
-                  {stat.value}
-                </dt>
-                <dd className="mt-1 text-xs leading-snug text-muted">
-                  {stat.label}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </Container>
-      </section>
-
-      {/* Problem */}
-      <section className="border-y border-white/5 bg-ink-2 py-14 sm:py-20">
-        <Container>
-          <SectionHeading
-            eyebrow="Sound familiar?"
-            title="That’s the reality with most programs"
-            intro="Surface-level plans, minimal support, and then you’re left to figure it out alone."
-          />
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {problems.map((item, index) => (
-              <article
-                key={item.title}
-                className="rounded-2xl border border-white/10 bg-ink p-6"
-              >
-                <span className="font-display text-sm text-bronze/60">
-                  0{index + 1}
-                </span>
-                <h3 className="mt-3 text-xl font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {item.body}
-                </p>
-              </article>
-            ))}
-          </div>
-          <p className="mt-10 max-w-2xl text-lg text-paper/85">
-            At Mindfull Food Fitness you get real coaching, real structure, and
-            real support — and you learn the “why” behind all of it.
-          </p>
-        </Container>
-      </section>
-
-      {/* Pillars */}
-      <section className="py-14 sm:py-20 lg:py-24">
-        <Container className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative">
+      <section id="about" className="bg-white py-16 sm:py-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-2">
+          <Reveal from="left" className="relative mx-auto w-full max-w-md">
             <Image
-              src="/paul/paul-stage-abs.webp"
-              alt="Paul McGann competing on the PCA stage"
-              width={900}
-              height={620}
-              className="rounded-2xl object-cover"
-              sizes="(max-width: 1024px) 100vw, 45vw"
+              src="/mff/download-4.webp"
+              alt="Paul McGann coaching"
+              width={800}
+              height={1000}
+              className="absolute top-8 left-0 hidden w-36 rounded-2xl object-cover shadow-lg sm:block"
             />
-            <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-bronze/25" />
+            <Image
+              src="/mff/download-3-2.webp"
+              alt="Paul McGann, coach at Mindfull Food Fitness"
+              width={1000}
+              height={1500}
+              className="ml-auto w-[78%] rounded-2xl object-cover"
+            />
+            <div className="absolute bottom-6 left-0 flex items-center gap-3 rounded-2xl bg-gold px-4 py-3 text-white shadow-lg">
+              <Image src="/mff/muscle.png" alt="" width={40} height={40} className="h-10 w-10" />
+              <p>
+                <span className="block text-2xl font-black leading-none">17+</span>
+                <span className="text-[10px] font-semibold tracking-wide uppercase">Years’ experience</span>
+              </p>
+            </div>
+          </Reveal>
+          <Reveal from="right">
+            <Kicker>About Us</Kicker>
+            <h2 className="mt-3 text-4xl font-black sm:text-5xl">
+              The Story <span className="text-gold">Behind MFF</span>
+            </h2>
+            <div className="mt-5 space-y-4 text-base leading-relaxed text-neutral-700">
+              <p>
+                For 17 years I worked in Michelin-star kitchens. Food, discipline and performance under pressure —
+                every day.
+              </p>
+              <p>
+                Then personal loss, and watching my own family struggle with their health, changed how I saw all of
+                it. There had to be a better way. That’s what took me from the kitchen to coaching. Since 2018 I’ve
+                helped clients rebuild their nutrition, energy and body through strategies that fit real life — not a
+                diet you abandon in week six. I work in a set order: mindset first, then nutrition, then training. Get
+                the first two right and the training finally sticks.
+              </p>
+              <p>
+                <strong>My mission is simple:</strong> results that last, without extreme diets or routines you can’t
+                keep.
+              </p>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={btnOutline}>
+                Book a Free Strategy Call
+              </a>
+              <a href="#pricing" className={btnGold}>
+                See Pricing
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section id="programme" className="bg-black py-16 text-white sm:py-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr]">
+          <Reveal from="left">
+            <Kicker>The Programme</Kicker>
+            <h2 className="mt-3 text-3xl font-black sm:text-4xl">
+              MFF 12-Month Body <span className="text-gold">& Lifestyle Transformation</span>
+            </h2>
+            <p className="mt-4 max-w-2xl text-white/75">
+              This isn’t a programme. It’s a rebuild — the knowledge, structure and mindset to stay in control of your
+              body for life.
+            </p>
+            <div className="mt-8">
+              <PhaseTabs />
+            </div>
+            <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={`${btnGold} mt-8`}>
+              Book a Free Strategy Call
+            </a>
+          </Reveal>
+          <Reveal from="right">
+            <Image
+              src="/mff/img.webp"
+              alt="Mindfull Food Fitness coaching"
+              width={919}
+              height={1024}
+              className="w-full rounded-2xl object-cover"
+            />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 sm:py-20">
+        <Reveal className="mx-auto max-w-6xl px-5 sm:px-8">
+          <Kicker>Real Results</Kicker>
+          <h2 className="mt-3 text-4xl font-black">
+            The Results <span className="text-gold">Behind MFF</span>
+          </h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {spotlightQuotes.map((quote) => (
+              <blockquote key={quote.name} className="rounded-2xl border border-black/10 bg-[#fafafa] p-6">
+                <p className="text-sm leading-relaxed text-neutral-700">{quote.quote}</p>
+                <footer className="mt-4 text-sm font-semibold">{quote.name}</footer>
+              </blockquote>
+            ))}
           </div>
-          <div>
-            <SectionHeading
-              eyebrow="The method"
-              title="Three things change everything"
-              intro="Fix these together and the results hold. Fix one in isolation and you end up back where you started."
+        </Reveal>
+      </section>
+
+      <section id="mff-nutrition" className="bg-[#fafafa] py-16 sm:py-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <Reveal from="left">
+            <Image
+              src="/mff/9954.jpg"
+              alt="Food prepared for MFF nutrition coaching"
+              width={819}
+              height={1024}
+              className="w-full rounded-2xl object-cover"
             />
-            <div className="mt-10 space-y-4">
-              {pillars.map((pillar) => (
-                <article
-                  key={pillar.title}
-                  className="rounded-2xl border border-white/10 bg-ink-2 p-6"
-                >
-                  <h3 className="font-display text-xl uppercase text-bronze">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {pillar.body}
-                  </p>
+          </Reveal>
+          <Reveal from="up" delay={80}>
+            <Kicker>MFF Nutrition</Kicker>
+            <h2 className="mt-3 text-4xl font-black">The MFF Nutrition System</h2>
+            <p className="mt-4 leading-relaxed text-neutral-700">
+              Most coaches hand you a meal plan. I teach you how to build meals that fit your life and your goals —
+              because I’ve lived both sides: the chef and the coach.
+            </p>
+            <p className="mt-4 font-semibold">You’ll learn how to:</p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {nutritionPoints.map((point) => (
+                <article key={point.title} className="rounded-2xl bg-white p-4 shadow-sm">
+                  <Image src={point.icon} alt="" width={48} height={48} className="h-12 w-12" />
+                  <h3 className="mt-3 text-base font-semibold">{point.title}</h3>
                 </article>
               ))}
             </div>
-          </div>
-        </Container>
+            <p className="mt-5 text-neutral-700">
+              By the end you can plan, cook and adjust your own food. That’s the part that means you never need a coach
+              again.
+            </p>
+          </Reveal>
+        </div>
       </section>
 
-      {/* Plans */}
-      <section className="border-y border-white/5 bg-ink-2 py-14 sm:py-20">
-        <Container>
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <SectionHeading
-              eyebrow="Coaching"
-              title="Choose your path"
-              intro="Five ways to work together, online and in Leicester. Full pricing on every plan — no hidden costs."
-            />
-            <Link
-              href="/coaching"
-              className="inline-flex min-h-11 items-center text-sm font-semibold text-bronze hover:text-bronze-2"
-            >
-              Compare all plans →
-            </Link>
-          </div>
-
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {offers.map((offer) => (
-              <Link
-                key={offer.id}
-                href={`/coaching#${offer.id}`}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink transition hover:border-bronze/50"
-              >
-                <div className="relative h-44 overflow-hidden">
-                  <Image
-                    src={offer.image}
-                    alt={offer.name}
-                    fill
-                    className="object-cover object-top opacity-70 transition duration-500 group-hover:scale-105 group-hover:opacity-90"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
-                  <span className="absolute bottom-3 left-5 right-5 text-xs uppercase tracking-[0.18em] text-bronze">
-                    {offer.eyebrow}
-                  </span>
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-xl font-semibold">{offer.name}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
-                    {offer.summary}
-                  </p>
-                  <div className="mt-6 flex items-baseline justify-between gap-3 border-t border-white/10 pt-4">
-                    <span className="font-display text-xl text-bronze">
-                      From {offer.fromPrice}
-                    </span>
-                    <span className="text-sm text-paper/70 group-hover:text-bronze">
-                      Details →
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Transformations */}
-      <section className="py-14 sm:py-20 lg:py-24">
-        <Container>
-          <SectionHeading
-            eyebrow="Real people. Real results."
-            title="You’re next"
-            intro="These aren’t models — they’re everyday people who committed, followed the plan, and changed their lives."
-          />
-          <div className="mt-12">
-            <TransformationRail limit={6} />
-          </div>
-          <Link
-            href="/results"
-            className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-bronze hover:text-bronze-2"
-          >
-            See every transformation and review →
-          </Link>
-        </Container>
-      </section>
-
-      {/* App */}
-      <section className="border-y border-white/5 bg-ink-2 py-14 sm:py-20">
-        <Container className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <SectionHeading
-              eyebrow="The MFF app"
-              title="Your whole plan in one place"
-              intro="Training, nutrition, check-ins, and progress tracking — plus a direct line to Paul between sessions."
-            />
-            <ul className="mt-8 space-y-3">
-              {appFeatures.map((feature) => (
-                <li key={feature} className="flex gap-3 text-sm text-paper/85">
-                  <span aria-hidden className="mt-1 text-bronze">
-                    ✓
-                  </span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-            <ButtonLink href="/signup" className="mt-9">
-              Get set up in the app
-            </ButtonLink>
-          </div>
-          <div className="flex items-end justify-center gap-5">
-            <Image
-              src="/app/app-notification.webp"
-              alt="A message from Coach Paul on a phone lock screen"
-              width={300}
-              height={600}
-              className="w-2/5 max-w-[190px]"
-              sizes="40vw"
-            />
-            <Image
-              src="/app/app-programs.webp"
-              alt="Training programs in the MFF app"
-              width={340}
-              height={680}
-              className="w-1/2 max-w-[230px]"
-              sizes="50vw"
-            />
-          </div>
-        </Container>
-      </section>
-
-      {/* Coach */}
-      <section className="py-14 sm:py-20 lg:py-24">
-        <Container className="grid items-center gap-12 lg:grid-cols-2">
-          <div className="relative order-2 lg:order-1">
-            <Image
-              src="/paul/paul-coach-square.webp"
-              alt="Paul McGann, founder of Mindfull Food Fitness"
-              width={1080}
-              height={1080}
-              className="w-full rounded-2xl bg-ink-2 object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-bronze/25" />
-          </div>
-          <div className="order-1 lg:order-2">
-            <Eyebrow>Meet your coach</Eyebrow>
-            <h2 className="font-display mt-3 text-4xl uppercase sm:text-5xl">
-              {site.coach}
-            </h2>
-            <p className="mt-6 leading-relaxed text-muted">{story.short}</p>
-            <ul className="mt-8 space-y-2 text-sm text-paper/85">
-              {story.credentials.slice(0, 4).map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span aria-hidden className="mt-0.5 text-bronze">
+      <section id="whats-included" className="bg-black py-16 text-white sm:py-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-2">
+          <Reveal from="left">
+            <Kicker>Included</Kicker>
+            <h2 className="mt-3 text-4xl font-black">What&apos;s Included</h2>
+            <p className="mt-4 text-white/70">Included in every package:</p>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+              {included.map((item) => (
+                <li key={item} className="flex gap-2 text-sm leading-relaxed">
+                  <span aria-hidden className="text-gold">
                     ✓
                   </span>
                   {item}
                 </li>
               ))}
             </ul>
-            <ButtonLink href="/about" variant="secondary" className="mt-9">
-              Read Paul’s story
-            </ButtonLink>
-          </div>
-        </Container>
+            <a href="#pricing" className={`${btnGold} mt-8`}>
+              See Pricing
+            </a>
+          </Reveal>
+          <Reveal from="right">
+            <Image
+              src="/mff/17019.webp"
+              alt="MFF fitness and nutrition coaching support"
+              width={768}
+              height={1024}
+              className="w-full rounded-2xl object-cover"
+            />
+          </Reveal>
+        </div>
       </section>
 
-      {/* Reviews */}
-      <section className="border-y border-white/5 bg-ink-2 py-14 sm:py-20">
-        <Container>
-          <SectionHeading
-            eyebrow={`Excellent · ${site.reviewsCount} Google reviews`}
-            title="What clients say"
-          />
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {reviews.slice(0, 3).map((review) => (
-              <blockquote
-                key={review.name}
-                className="flex flex-col rounded-2xl border border-white/10 bg-ink p-6"
-              >
-                <p aria-label="5 out of 5 stars" className="text-bronze">
-                  ★★★★★
-                </p>
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-paper/85">
-                  “{review.quote.slice(0, 260)}
-                  {review.quote.length > 260 ? "…" : ""}”
-                </p>
-                <footer className="mt-5 border-t border-white/10 pt-4 text-sm">
-                  <span className="text-paper">{review.name}</span>
-                  <span className="block text-xs text-muted">{review.meta}</span>
-                </footer>
-              </blockquote>
+      <section id="gallery" className="bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <Kicker>Gallery</Kicker>
+          <h2 className="mt-3 text-4xl font-black">
+            Transformations <span className="text-gold">Gallery</span>
+          </h2>
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {gallery.map((item) => (
+              <article key={item.before} className="overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm">
+                <Image src="/mff/1000065805-1.webp" alt="" width={1024} height={134} className="h-auto w-full" />
+                <BeforeAfter before={item.before} after={item.after} alt="MFF client before and after transformation" />
+                <Image src={item.banner} alt="" width={1024} height={260} className="h-auto w-full" />
+              </article>
             ))}
           </div>
-          <Link
-            href="/results"
-            className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-bronze hover:text-bronze-2"
-          >
-            Read all reviews →
-          </Link>
-        </Container>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-14 sm:py-20">
-        <Container>
-          <SectionHeading
-            eyebrow="Clear answers. No guesswork."
-            title="Common questions"
-          />
-          <div className="mt-10">
-            <FaqList limit={5} />
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {galleryVideos.map((src) => (
+              <video
+                key={src}
+                src={src}
+                controls
+                muted
+                playsInline
+                preload="metadata"
+                className="aspect-[9/16] w-full rounded-2xl bg-black object-cover"
+              />
+            ))}
           </div>
-          <Link
-            href="/contact"
-            className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-bronze hover:text-bronze-2"
-          >
-            Still not sure? Ask Paul directly →
-          </Link>
-        </Container>
-      </section>
-
-      {/* Final CTA */}
-      <section className="relative isolate overflow-hidden border-t border-white/5 py-16 sm:py-24">
-        <div className="absolute inset-0 -z-10">
-          <Image
-            src="/paul/paul-training.webp"
-            alt=""
-            aria-hidden
-            fill
-            className="object-cover object-top opacity-25"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/90 to-ink" />
         </div>
-        <Container className="text-center">
-          <Eyebrow>Ready to transform your life?</Eyebrow>
-          <h2 className="font-display mx-auto mt-4 max-w-3xl text-4xl uppercase leading-tight sm:text-5xl">
-            You don’t need another quick fix
+      </section>
+
+      <section id="reviews" className="relative overflow-hidden bg-[#202020] py-16 text-white sm:py-[70px]">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-80"
+          style={{
+            backgroundImage: "url(/mff/reviews-bg.svg)",
+            backgroundRepeat: "repeat",
+            backgroundPosition: "center",
+            backgroundSize: "600px",
+          }}
+        />
+        <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
+          <h2 className="text-center text-[40px] leading-[50px] font-bold">
+            What <span className="text-gold">Clients Say</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted">
-            You need a plan, real support, and a coach who’s with you. Choose
-            your path and let’s get started.
+          <a
+            href={site.googleReviews}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 block text-center text-sm text-white/80 hover:text-white"
+          >
+            {site.reviewsCount} five-star reviews on Google
+          </a>
+          <ReviewCarousel />
+        </div>
+      </section>
+
+      <section id="pricing" className="bg-[#fafafa] py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <Kicker>Pricing</Kicker>
+          <h2 className="mt-3 max-w-3xl text-4xl font-black">
+            Invest In The Result. <span className="text-gold">Not Another Quick Fix</span>
+          </h2>
+          <p className="mt-4 max-w-3xl text-neutral-700">
+            Three ways in. Same coaching, same standards — the difference is how far we take it. Every package is paid
+            in full up front.
           </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <ButtonLink href="/coaching">View coaching plans</ButtonLink>
-            <ButtonLink href="/signup" variant="secondary">
-              Sign up now
-            </ButtonLink>
+          <div className="mt-10 grid items-stretch gap-5 lg:grid-cols-3">
+            {packages.map((item, index) => (
+              <Reveal key={item.id} delay={index * 100} className="h-full">
+              <article
+                className={`flex h-full flex-col rounded-3xl bg-white p-6 shadow-sm ${
+                  "highlighted" in item && item.highlighted ? "ring-2 ring-gold" : "border border-black/5"
+                }`}
+              >
+                <Image src={item.icon} alt="" width={48} height={48} className="h-12 w-12" />
+                {"badge" in item && item.badge ? (
+                  <p className="mt-4 text-xs font-bold tracking-[0.16em] text-gold uppercase">{item.badge}</p>
+                ) : null}
+                <h3 className="mt-2 text-lg font-extrabold text-gold">{item.kicker}</h3>
+                {"save" in item && item.save ? <p className="mt-1 text-sm font-semibold">{item.save}</p> : null}
+                {item.lead ? <p className="mt-3 text-sm font-semibold">{item.lead}</p> : null}
+                {item.summary ? <p className="mt-2 text-sm leading-relaxed text-neutral-700">{item.summary}</p> : null}
+                {"note" in item && item.note ? (
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-700">{item.note}</p>
+                ) : null}
+                <p className="mt-4 text-sm font-semibold">What’s included:</p>
+                <ul className="mt-2 space-y-2">
+                  {item.features.map((feature) => (
+                    <li key={feature} className="flex gap-2 text-sm leading-relaxed text-neutral-700">
+                      <span aria-hidden className="text-gold">
+                        ✓
+                      </span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                {"place" in item && item.place ? (
+                  <p className="mt-4 text-sm font-medium text-neutral-800">{item.place}</p>
+                ) : null}
+                {"closer" in item && item.closer ? (
+                  <p className="mt-4 text-sm font-semibold">{item.closer}</p>
+                ) : null}
+                <div className="mt-auto pt-6">
+                  <p className="text-2xl font-black">{item.priceLabel}</p>
+                  <a
+                    href={site.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${btnGold} mt-4 w-full`}
+                  >
+                    Book a Free Strategy Call
+                  </a>
+                </div>
+              </article>
+              </Reveal>
+            ))}
           </div>
-        </Container>
+
+          <Reveal className="mt-10 rounded-3xl bg-white p-6 text-center shadow-sm sm:p-10">
+            <h3 className="text-xl font-black">Not sure which option is right for you?</h3>
+            <p className="mx-auto mt-3 max-w-2xl text-neutral-700">
+              You don’t have to figure it out alone. We’ll look at where you are now, where you want to go and whether
+              MFF is the right fit for you. No pressure. No hard sell. Just a straight conversation.
+            </p>
+            <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={`${btnGold} mt-6`}>
+              Book a FREE Strategy Call
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-white py-16 sm:py-[70px]">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: "url(/mff/roadmap-bg.webp)",
+            backgroundRepeat: "repeat",
+            backgroundPosition: "center left",
+            backgroundSize: "contain",
+          }}
+        />
+        <div className="relative mx-auto max-w-6xl px-5 text-center sm:px-8">
+          <div className="flex justify-center">
+            <Kicker>The Complete Transformation</Kicker>
+          </div>
+          <h2 className="mt-3 text-4xl font-black sm:text-[40px] sm:leading-[50px]">
+            Your 12-Month <span className="text-gold">Roadmap</span>
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-neutral-700">
+            A structured journey with clear phases, designed to help you build habits, make progress and achieve lasting
+            results.
+          </p>
+          <div className="relative mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="absolute top-7 right-[12.5%] left-[12.5%] hidden h-px bg-gold lg:block" />
+            {roadmap.map((step) => (
+              <article key={step.n} className="relative">
+                <p className="relative z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gold text-[22px] font-semibold text-white">
+                  {step.n}
+                </p>
+                <h3 className="mt-4 text-sm font-semibold tracking-wide uppercase">{step.title}</h3>
+                <div className="mx-auto mt-3 h-px w-10 bg-gold" />
+                <p className="mt-3 text-sm leading-relaxed text-neutral-600">{step.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative isolate overflow-hidden py-16 text-white sm:py-[90px]">
+        <Image src="/mff/gym.webp" alt="" fill className="object-cover" sizes="100vw" />
+        <div className="absolute inset-0 bg-black/[0.88]" />
+        <div className="relative mx-auto grid max-w-6xl items-start gap-11 px-5 sm:px-8 lg:grid-cols-2">
+          <div>
+            <h2 className="text-3xl font-bold">
+              1:1 In-Person <span className="text-gold">Personal Training</span>
+            </h2>
+            <p className="mt-4 max-w-xl text-white">
+              One-to-one personal training in Leicester, tailored to your goals with expert guidance, real-time form
+              correction and focused accountability.
+            </p>
+            <div
+              className="mt-6 max-w-xl rounded-[15px] border border-white/55 border-l-4 px-4 py-4"
+              style={{ backgroundColor: "#A68D412B" }}
+            >
+              <Kicker>Train With Purpose</Kicker>
+              <h3 className="mt-2 text-[25px] leading-[35px] font-bold">
+                Prefer training <span className="text-gold">face-to-face?</span>
+              </h3>
+              <p className="mt-1 font-[family-name:var(--font-open-sans)] text-base leading-relaxed text-white italic">
+                Limited 1:1 spaces in Leicester for people who want coaching in the room — with real-time form
+                correction, personalised training and expert guidance.
+              </p>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold">In-person sessions include</h3>
+            <ul className="mt-4 space-y-2.5">
+              {inPersonIncludes.map((item) => (
+                <li key={item} className="flex items-center gap-3 text-sm text-white">
+                  <span aria-hidden className="h-3.5 w-3.5 shrink-0 rounded-full border border-white" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 flex max-w-md items-end gap-3 text-lg font-bold">
+              <span>Per Session</span>
+              <span aria-hidden className="mb-1.5 h-px flex-1 border-b border-dotted border-white/70" />
+              <span className="text-gold">£40</span>
+            </div>
+            <p className="mt-1 text-sm text-white">10-session block — 20% discount.</p>
+            <p className="mt-3 text-sm text-white/80 italic">Limited spaces available, subject to availability.</p>
+            <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={`${btnGold} mt-6`}>
+              Book a Free Strategy Call
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="promise" className="bg-white px-4 py-16 sm:px-8 sm:py-[70px]">
+        <PromiseCard>
+          <div className="relative z-10 bg-black px-8 py-12 text-white sm:px-[60px] sm:py-[70px]">
+            <h2 className="text-4xl leading-[50px] font-bold">
+              The MFF <span className="text-gold">Promise</span>
+            </h2>
+            <p className="mt-4 max-w-xl leading-relaxed">
+              This isn’t about quick fixes, trends, or six-week plans. It’s about teaching you how to fuel your body with
+              precision, train with purpose, and live with balance — for life.
+            </p>
+            <p className="mt-5 font-bold">You’ll learn how to:</p>
+            <ul className="mt-3 space-y-2">
+              {promisePoints.map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm">
+                  <svg viewBox="0 0 512 512" className="mt-0.5 h-4 w-4 shrink-0" aria-hidden fill="#A68D41">
+                    <path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 max-w-xl text-sm leading-relaxed italic">
+              At the end of this journey, you won’t just have a new body — you’ll have the knowledge and mindset to stay
+              in control for life. That’s the promise: you won’t need me — or anyone else — again.
+            </p>
+          </div>
+        </PromiseCard>
+      </section>
+
+      <section
+        className="relative flex min-h-[400px] items-center py-[70px]"
+        style={{
+          backgroundImage: "url(/mff/guide-bg.webp)",
+          backgroundPosition: "center center",
+          backgroundRepeat: "repeat",
+          backgroundSize: "contain",
+        }}
+      >
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#FAFAFA]/65" />
+        <Reveal className="relative mx-auto w-full max-w-3xl px-5 text-center sm:px-8">
+          <div className="flex justify-center">
+            <Kicker>Start with the free guide</Kicker>
+          </div>
+          <h2 className="mt-3 text-4xl font-black">
+            High protein <span className="text-gold">Indian vegan</span> recipe book
+          </h2>
+          <GuideForm />
+        </Reveal>
+      </section>
+
+      <section id="contact" className="bg-white px-4 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto grid max-w-6xl overflow-hidden rounded-[20px] bg-gold text-white shadow-[0_0_40px_rgba(0,0,0,0.06)] lg:grid-cols-[minmax(280px,38%)_1fr]">
+          <div className="relative h-full min-h-[420px] lg:min-h-0">
+            <Image
+              src="/mff/download-3.webp"
+              alt="Paul McGann"
+              fill
+              sizes="(min-width: 1024px) 400px, 100vw"
+              className="object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-7 sm:p-8">
+              <h2 className="text-[26px] leading-[1.35] font-semibold">
+                Ready To Rebuild Your
+                <br />
+                Body & Life?
+              </h2>
+              <div className="my-4 h-px w-full bg-white/30" />
+              <a href={`mailto:${site.email}`} className="flex items-center gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center text-gold">
+                  <svg viewBox="0 0 24 24" className="h-9 w-9" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.4">
+                    <path strokeLinejoin="round" d="M3.5 7.5h17v11h-17z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.5 8 12 13.5 20.5 8" />
+                  </svg>
+                </span>
+                <span>
+                  <span className="block text-lg leading-none font-bold">Email Us</span>
+                  <span className="mt-1 block text-sm">{site.email}</span>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div className="px-5 py-8 sm:px-10 sm:py-12 lg:px-12">
+            <h2 className="text-4xl leading-tight font-bold">
+              Get in <span className="text-black">Touch</span>
+            </h2>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/95 sm:text-base">
+              Only a few spaces open each quarter, so every client gets my full attention. Apply below — or book a free
+              call if you’d rather talk first.
+            </p>
+            <ContactForm />
+          </div>
+        </div>
       </section>
     </>
   );

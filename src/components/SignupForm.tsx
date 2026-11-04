@@ -154,7 +154,7 @@ export function SignupForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="w-full rounded-full bg-bronze py-3 font-semibold text-ink transition hover:bg-bronze-2 disabled:opacity-60"
+          className="w-full rounded-full bg-bronze py-3 font-semibold text-white transition hover:bg-bronze-2 disabled:opacity-60"
         >
           {status === "sending"
             ? "Sending…"

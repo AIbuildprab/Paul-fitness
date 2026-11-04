@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Oswald } from "next/font/google";
+import { Manrope, Open_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
@@ -13,18 +13,17 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const oswald = Oswald({
+const openSans = Open_Sans({
   subsets: ["latin"],
-  variable: "--font-oswald",
+  variable: "--font-open-sans",
   display: "swap",
 });
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  // Lets the sticky CTA bar sit correctly against the iOS home indicator.
   viewportFit: "cover",
-  themeColor: "#0b0b0c",
+  themeColor: "#000000",
 };
 
 export const metadata: Metadata = {
@@ -41,13 +40,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_GB",
     type: "website",
-    images: [{ url: "/paul/paul-gym.jpg" }],
+    images: [{ url: "/mff/hero-bg.webp" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
-    images: ["/paul/paul-gym.jpg"],
+    images: ["/mff/hero-bg.webp"],
   },
   // Icons come from the app/ file conventions: favicon.ico, icon.png, apple-icon.png.
 };
@@ -56,9 +55,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-GB"
-      className={`${manrope.variable} ${oswald.variable} h-full antialiased`}
+      className={`${manrope.variable} ${openSans.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col overflow-x-hidden bg-ink font-sans text-paper">
+      <body className="flex min-h-full flex-col overflow-x-hidden bg-white font-sans text-neutral-900">
         <JsonLd />
         <Header />
         <main className="flex-1">{children}</main>
