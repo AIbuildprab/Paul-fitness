@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 export function Dumbbell({ className = "h-4 w-4" }: { className?: string }) {
   return (
@@ -11,17 +11,22 @@ export function Dumbbell({ className = "h-4 w-4" }: { className?: string }) {
 export function Kicker({
   children,
   light = false,
+  className = "",
+  iconClassName = "h-4 w-4",
+  style,
 }: {
   children: ReactNode;
   light?: boolean;
+  className?: string;
+  iconClassName?: string;
+  style?: CSSProperties;
 }) {
   return (
     <p
-      className={`flex items-center gap-2 text-sm font-semibold ${
-        light ? "text-gold" : "text-gold"
-      }`}
+      style={style}
+      className={`flex items-center gap-2 text-sm font-semibold ${light ? "text-gold" : "text-gold"} ${className}`}
     >
-      <Dumbbell />
+      <Dumbbell className={iconClassName} />
       {children}
     </p>
   );

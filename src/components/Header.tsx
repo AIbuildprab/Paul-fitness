@@ -46,22 +46,43 @@ export function Header() {
   }, [open]);
 
   useEffect(() => {
-    const nodes = ["home", ...nav.map((item) => item.id)]
-      .map((id) => document.getElementById(id))
-      .filter((node): node is HTMLElement => Boolean(node));
+    const ids = ["home", ...nav.map((item) => item.id)];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target.id) setActive(visible.target.id);
-      },
-      { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] },
-    );
+    const update = () => {
+      const probe = window.scrollY + window.innerHeight * 0.35;
+      let current = "home";
+      let currentTop = -Infinity;
+      for (const id of ids) {
+        const node = document.getElementById(id);
+        if (!node) continue;
+        const top = node.getBoundingClientRect().top + window.scrollY;
+        if (top <= probe && top >= currentTop) {
+          current = id;
+          currentTop = top;
+        }
+      }
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom) {
+        const last = [...ids].reverse().find((id) => document.getElementById(id));
+        if (last) current = last;
+      }
+      setActive(current);
+    };
 
-    nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
+    let frame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   const close = () => setOpen(false);

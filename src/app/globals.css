@@ -77,6 +77,39 @@ body {
   display: none;
 }
 
+.plan-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) rgba(166, 141, 65, 0.14);
+}
+
+.plan-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.plan-scroll::-webkit-scrollbar-track {
+  margin-block: 8px;
+  background: rgba(166, 141, 65, 0.14);
+  border-radius: 999px;
+}
+
+.plan-scroll::-webkit-scrollbar-thumb {
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--gold-2), var(--gold));
+  background-clip: padding-box;
+}
+
+.plan-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-2);
+  background-clip: padding-box;
+}
+
+.plan-scroll::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 ::selection {
   background: var(--gold);
   color: #fff;
@@ -93,7 +126,7 @@ body {
 }
 
 .rise {
-  animation-duration: 0.85s;
+  animation-duration: 2.35s;
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -187,11 +220,11 @@ body {
 }
 
 .hero-pop {
-  animation: hero-pop 0.7s cubic-bezier(0.2, 0.85, 0.2, 1) both;
+  animation: hero-pop 2.2s cubic-bezier(0.2, 0.85, 0.2, 1) both;
 }
 
 .hero-phone-in {
-  animation: hero-phone-in 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: hero-phone-in 2.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes hero-pop {

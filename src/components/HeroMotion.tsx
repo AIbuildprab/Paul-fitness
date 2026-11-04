@@ -63,9 +63,9 @@ export function HeroMotion() {
           </div>
           <div>
             <div className="hero-phone-in relative mx-auto h-[420px] w-[206px] shrink-0 sm:h-[480px] sm:w-[236px]">
-            <div className="absolute overflow-hidden bg-black" style={{ left: "6%", right: "6%", top: "6%", bottom: "3%" }}>
+            <div className="absolute overflow-hidden bg-black" style={{ left: "6%", right: "6%", top: "5%", bottom: "2.5%" }}>
               <video
-                className="absolute inset-0 h-full w-full object-contain"
+                className="absolute inset-x-0 top-1/2 aspect-[9/16] w-full -translate-y-1/2 bg-black object-cover"
                 src="/mff/Hero.mp4"
                 poster="/mff/fallback.webp"
                 autoPlay

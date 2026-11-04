@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { reviews } from "@/lib/content";
 import { site } from "@/lib/site";
 
@@ -89,16 +89,73 @@ function GoogleMark() {
   );
 }
 
+const AUTOPLAY_MS = 5000;
+const SLIDE_MS = 1300;
+
 export function ReviewCarousel() {
   const visibleCount = useVisibleCount();
-  const [start, setStart] = useState(0);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const [index, setIndex] = useState(0);
+  const [step, setStep] = useState(0);
+  const [sliding, setSliding] = useState(true);
   const [open, setOpen] = useState<string | null>(null);
-  const max = Math.max(0, reviews.length - visibleCount);
-  const pageStart = Math.min(start, max);
-  const visible = reviews.slice(pageStart, pageStart + visibleCount);
+  const [paused, setPaused] = useState(false);
+  const track = [...reviews, ...reviews.slice(0, visibleCount)];
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const measure = () => {
+      const gap = 16;
+      const card = (viewport.clientWidth - gap * (visibleCount - 1)) / visibleCount;
+      setStep(card + gap);
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(viewport);
+    return () => observer.disconnect();
+  }, [visibleCount]);
+
+  useEffect(() => {
+    if (paused || open) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const timer = window.setInterval(() => {
+      setSliding(true);
+      setIndex((value) => (value >= reviews.length ? value : value + 1));
+    }, AUTOPLAY_MS);
+
+    return () => window.clearInterval(timer);
+  }, [paused, open]);
+
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  useEffect(() => {
+    setReduceMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
+
+  const go = (delta: number) => {
+    setSliding(!reduceMotion);
+    setIndex((value) => {
+      const next = value + delta;
+      if (next < 0) return 0;
+      if (next > reviews.length) return value;
+      return next;
+    });
+  };
 
   return (
-    <div className="mt-10 flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-6">
+    <div
+      className="mt-10 flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-6"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
+      }}
+    >
       <a
         href={site.googleReviews}
         target="_blank"
@@ -123,24 +180,39 @@ export function ReviewCarousel() {
       </a>
 
       <div className="relative min-w-0 flex-1">
-        {pageStart > 0 ? (
+        {index > 0 ? (
           <button
             type="button"
             aria-label="Previous review"
-            onClick={() => setStart((value) => Math.max(0, value - 1))}
+            onClick={() => go(-1)}
             className="absolute top-1/2 -left-4 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-2xl text-white shadow md:inline-flex"
           >
             ‹
           </button>
         ) : null}
-        <div
-          className="grid gap-4"
-          style={{ gridTemplateColumns: `repeat(${visibleCount}, minmax(0, 1fr))` }}
-        >
-          {visible.map((review) => {
+        <div ref={viewportRef} className="overflow-hidden [container-type:inline-size]">
+          <div
+            className="flex items-stretch"
+            style={{
+              gap: 16,
+              transform: `translate3d(${-index * step}px, 0, 0)`,
+              transition: sliding && !reduceMotion ? `transform ${SLIDE_MS}ms cubic-bezier(0.22, 1, 0.36, 1)` : "none",
+            }}
+            onTransitionEnd={(event) => {
+              if (event.target !== event.currentTarget || event.propertyName !== "transform") return;
+              if (index < reviews.length) return;
+              setSliding(false);
+              setIndex(0);
+            }}
+          >
+          {track.map((review, position) => {
             const expanded = open === review.name;
             return (
-              <article key={review.name} className="rounded-xl bg-[#1a1a1a] p-4 text-left text-white shadow-sm">
+              <article
+                key={`${review.name}-${position}`}
+                className="rounded-xl bg-[#1a1a1a] p-4 text-left text-white shadow-sm"
+                style={{ flex: `0 0 calc((100cqw - ${(visibleCount - 1) * 16}px) / ${visibleCount})` }}
+              >
                 <div className="flex items-start gap-3">
                   <ReviewAvatar src={review.avatar} />
                   <div className="min-w-0 flex-1">
@@ -174,12 +246,13 @@ export function ReviewCarousel() {
               </article>
             );
           })}
+          </div>
         </div>
-        {pageStart < max ? (
+        {reviews.length > visibleCount ? (
           <button
             type="button"
             aria-label="Next review"
-            onClick={() => setStart((value) => Math.min(max, value + 1))}
+            onClick={() => go(1)}
             className="absolute top-1/2 -right-4 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-2xl text-white shadow md:inline-flex"
           >
             ›
@@ -189,8 +262,8 @@ export function ReviewCarousel() {
           <button
             type="button"
             aria-label="Previous review"
-            disabled={pageStart === 0}
-            onClick={() => setStart((value) => Math.max(0, value - 1))}
+            disabled={index === 0}
+            onClick={() => go(-1)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-2xl text-white disabled:opacity-30"
           >
             ‹
@@ -198,8 +271,8 @@ export function ReviewCarousel() {
           <button
             type="button"
             aria-label="Next review"
-            disabled={pageStart >= max}
-            onClick={() => setStart((value) => Math.min(max, value + 1))}
+            disabled={reviews.length <= visibleCount}
+            onClick={() => go(1)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-2xl text-white disabled:opacity-30"
           >
             ›
