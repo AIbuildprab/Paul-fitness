@@ -6,7 +6,7 @@ export function HeroMotion() {
   return (
     <section
       id="home"
-      className="relative isolate -mt-[88px] overflow-hidden bg-black pt-32 text-white lg:-mt-[79px] lg:min-h-[calc(100dvh-2.25rem)] lg:pt-[144px]"
+      className="relative isolate -mt-[88px] min-h-[calc(100dvh-2.25rem)] overflow-hidden bg-black pt-32 text-white lg:-mt-[79px] lg:pt-[144px]"
     >
       <Image
         src="/mff/hero-bg.webp"

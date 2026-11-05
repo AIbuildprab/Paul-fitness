@@ -45,6 +45,7 @@ export default function HomePage() {
                   src="/mff/Hero.mp4"
                   poster="/mff/fallback.webp"
                   aria-label="Paul McGann introducing Mindfull Food Fitness"
+                  controls
                   autoPlay
                   muted
                   loop
@@ -57,7 +58,7 @@ export default function HomePage() {
                 alt=""
                 width={332}
                 height={675}
-                className="pointer-events-none absolute inset-0 z-10 h-full w-full"
+                className="pointer-events-none absolute inset-0 z-30 h-full w-full"
               />
             </div>
             <div className="rise-ltr absolute bottom-2 left-0 z-30 flex items-center gap-3 rounded-2xl bg-gold px-4 py-3 text-white shadow-lg sm:bottom-6">
@@ -683,9 +684,7 @@ export default function HomePage() {
               Only a few spaces open each quarter, so every client gets my full attention. Apply below — or book a free
               call if you’d rather talk first.
             </p>
-            <div className="text-left">
-              <ContactForm />
-            </div>
+            <ContactForm />
           </div>
         </div>
       </section>
