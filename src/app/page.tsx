@@ -35,7 +35,7 @@ export default function HomePage() {
               alt="Paul McGann coaching"
               width={800}
               height={1000}
-              className="absolute top-8 left-0 hidden w-36 rounded-2xl object-cover shadow-lg sm:block"
+              className="reveal-ltr absolute top-8 left-0 hidden w-36 rounded-2xl object-cover shadow-lg sm:block"
             />
             <Image
               src="/mff/download-3-2.webp"
@@ -44,7 +44,7 @@ export default function HomePage() {
               height={1500}
               className="ml-auto w-[78%] rounded-2xl object-cover"
             />
-            <div className="absolute bottom-6 left-0 flex items-center gap-3 rounded-2xl bg-gold px-4 py-3 text-white shadow-lg">
+            <div className="rise-ltr absolute bottom-6 left-0 flex items-center gap-3 rounded-2xl bg-gold px-4 py-3 text-white shadow-lg">
               <Image src="/mff/muscle.png" alt="" width={40} height={40} className="h-10 w-10" />
               <p>
                 <span className="block text-2xl font-black leading-none">17+</span>
@@ -53,11 +53,17 @@ export default function HomePage() {
             </div>
           </Reveal>
           <Reveal from="right">
-            <Kicker>About Us</Kicker>
-            <h2 className="mt-3 text-4xl font-black sm:text-5xl">
+            <Kicker
+              className="rise-ttb"
+              iconClassName="h-8 w-8"
+              style={{ fontSize: "1.5rem", lineHeight: "2rem", gap: "0.75rem" }}
+            >
+              About Us
+            </Kicker>
+            <h2 className="rise-rtl mt-3 text-4xl font-black sm:text-5xl">
               The Story <span className="text-gold">Behind MFF</span>
             </h2>
-            <div className="mt-5 space-y-4 text-base leading-relaxed text-neutral-700">
+            <div className="rise-bottom mt-5 space-y-4 text-base leading-relaxed text-neutral-700">
               <p>
                 For 17 years I worked in Michelin-star kitchens. Food, discipline and performance under pressure —
                 every day.
@@ -89,11 +95,17 @@ export default function HomePage() {
       <section id="programme" className="bg-black py-16 text-white sm:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr]">
           <Reveal from="left">
-            <Kicker>The Programme</Kicker>
+            <Kicker
+              className="!text-white"
+              iconClassName="h-8 w-8"
+              style={{ fontSize: "1.5rem", lineHeight: "2rem", gap: "0.75rem" }}
+            >
+              The Programme
+            </Kicker>
             <h2 className="mt-3 text-3xl font-black sm:text-4xl">
-              MFF 12-Month Body <span className="text-gold">& Lifestyle Transformation</span>
+              MFF 12-Month Body <span className="rise-ltr inline-block text-gold">& Lifestyle Transformation</span>
             </h2>
-            <p className="mt-4 max-w-2xl text-white/75">
+            <p className="rise-bottom mt-4 max-w-2xl text-white/75">
               This isn’t a programme. It’s a rebuild — the knowledge, structure and mindset to stay in control of your
               body for life.
             </p>
@@ -105,21 +117,33 @@ export default function HomePage() {
             </a>
           </Reveal>
           <Reveal from="right">
-            <Image
-              src="/mff/img.webp"
-              alt="Mindfull Food Fitness coaching"
-              width={919}
-              height={1024}
-              className="w-full rounded-2xl object-cover"
-            />
+            <div className="rise-rtl relative pr-3.5 pb-3.5 sm:pr-4 sm:pb-4">
+              <div
+                aria-hidden
+                className="absolute top-3.5 right-0 bottom-0 left-3.5 rounded-2xl bg-gold sm:top-4 sm:left-4"
+              />
+              <Image
+                src="/mff/img.webp"
+                alt="Mindfull Food Fitness coaching"
+                width={919}
+                height={1024}
+                className="relative z-10 w-full rounded-2xl object-cover"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white pt-16 pb-6 sm:pt-20 sm:pb-8">
         <Reveal className="mx-auto max-w-6xl px-5 sm:px-8">
-          <Kicker>Real Results</Kicker>
-          <h2 className="mt-3 text-4xl font-black">
+          <Kicker
+            className="justify-center"
+            iconClassName="h-8 w-8"
+            style={{ fontSize: "1.5rem", lineHeight: "2rem", gap: "0.75rem" }}
+          >
+            Real Results
+          </Kicker>
+          <h2 className="mt-3 text-center text-4xl font-black">
             The Results <span className="text-gold">Behind MFF</span>
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
@@ -133,7 +157,7 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      <section id="mff-nutrition" className="bg-[#fafafa] py-16 sm:py-20">
+      <section id="mff-nutrition" className="bg-[#fafafa] pt-6 pb-16 sm:pt-8 sm:pb-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal from="left">
             <Image
@@ -172,8 +196,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="whats-included" className="bg-black py-12 text-white sm:py-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 sm:px-8 lg:grid-cols-2">
+      <section id="whats-included" className="bg-black py-8 text-white sm:py-10">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 px-5 sm:px-8 lg:grid-cols-2">
           <Reveal from="left">
             <Kicker>Included</Kicker>
             <h2 className="mt-3 text-4xl font-black">
@@ -207,20 +231,26 @@ export default function HomePage() {
             </a>
           </Reveal>
           <Reveal from="right" className="mx-auto w-full max-w-md">
-            <Image
-              src="/mff/17019.webp"
-              alt="MFF fitness and nutrition coaching support"
-              width={768}
-              height={1024}
-              className="h-auto w-full rounded-2xl object-cover"
-            />
+            <div className="relative h-[340px] overflow-hidden rounded-2xl sm:h-[400px]">
+              <Image
+                src="/mff/17019.webp"
+                alt="MFF fitness and nutrition coaching support"
+                fill
+                sizes="(min-width: 1024px) 28rem, 100vw"
+                className="object-cover object-center"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
 
       <section id="gallery" className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <Kicker className="justify-center" iconClassName="h-8 w-8">
+          <Kicker
+            className="justify-center"
+            iconClassName="h-12 w-12"
+            style={{ fontSize: "1.875rem", lineHeight: "2.25rem", gap: "0.75rem" }}
+          >
             Gallery
           </Kicker>
           <h2 className="mt-3 text-center text-4xl font-black">

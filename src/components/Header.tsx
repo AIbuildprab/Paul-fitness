@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 import { nav, site } from "@/lib/site";
 
@@ -20,9 +21,11 @@ function Social({ href, label, children }: { href: string; label: string; childr
 }
 
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const solid = scrolled || open || pathname === "/privacy" || pathname === "/terms";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -123,7 +126,7 @@ export function Header() {
 
       <header
         className={`sticky top-0 z-50 border-b border-white/5 text-white transition-colors duration-1000 ${
-          scrolled || open ? "bg-black" : "bg-black/[0.07]"
+          solid ? "bg-black" : "bg-black/[0.07]"
         }`}
       >
         <div className="mx-auto flex w-full max-w-[1200px] items-center gap-4 px-4 py-5 lg:py-4">

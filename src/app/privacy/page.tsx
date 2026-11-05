@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
+import { site } from "@/lib/site";
 
-const privacyEmail = "info@mindfullfoodfitness.com";
+const privacyEmail = site.email;
 
 export const metadata: Metadata = {
   title: "Privacy Policy",

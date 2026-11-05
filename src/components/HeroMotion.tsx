@@ -22,8 +22,14 @@ export function HeroMotion() {
       />
       <div className="relative mx-auto grid w-full max-w-[1200px] items-center gap-10 px-4 pb-16 lg:grid-cols-[3fr_2fr] lg:pb-16">
           <div className="hero-pop">
-            <Kicker>Mindfull Food Fitness</Kicker>
-            <h1 className="mt-4 text-[38px] leading-[50px] font-black sm:text-[42px] lg:text-[56px] lg:leading-[64px]">
+            <Kicker
+              className="!text-white"
+              iconClassName="h-8 w-8"
+              style={{ fontSize: "1.5rem", lineHeight: "2rem", gap: "0.75rem" }}
+            >
+              Mindfull Food Fitness
+            </Kicker>
+            <h1 className="hero-gold-in mt-4 text-[38px] leading-[50px] font-black sm:text-[42px] lg:text-[56px] lg:leading-[64px]">
               The Last Coach <span className="text-gold">You&apos;ll Ever Need</span>
             </h1>
             <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 font-[family-name:var(--font-open-sans)] text-[16px] leading-6 font-normal text-white">
@@ -36,7 +42,7 @@ export function HeroMotion() {
                 </li>
               ))}
             </ul>
-            <div className="mt-5 max-w-[612px] space-y-3 font-[family-name:var(--font-open-sans)] text-[17px] leading-[26px] font-normal text-white">
+            <div className="hero-pop-up mt-5 max-w-[612px] space-y-3 font-[family-name:var(--font-open-sans)] text-[17px] leading-[26px] font-normal text-white">
               <p>Stop chasing quick fixes. Start building a body you understand.</p>
               <p>
                 No gimmicks. No guesswork. Just expert coaching, real food, smart training and the knowledge to own

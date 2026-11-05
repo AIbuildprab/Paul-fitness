@@ -127,7 +127,7 @@ body {
 }
 
 .rise {
-  animation-duration: 2.35s;
+  animation-duration: 2.85s;
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -146,7 +146,7 @@ body {
 
 .rise.rise-pop {
   animation-name: rise-pop;
-  animation-duration: 0.85s;
+  animation-duration: 1.35s;
   animation-timing-function: cubic-bezier(0.2, 0.85, 0.25, 1);
 }
 
@@ -199,34 +199,198 @@ body {
 }
 
 .hero-pop {
-  animation: hero-pop 2.2s cubic-bezier(0.2, 0.85, 0.2, 1) both;
+  animation: hero-rise 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero-phone-in {
-  animation: hero-phone-in 2.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: hero-rise 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
 }
 
-@keyframes hero-pop {
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-gold-in {
+  display: inline-block;
+  transform-origin: center;
+  animation: hero-from-center 1.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
+@keyframes hero-from-center {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.phase-shine {
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.phase-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 42%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.72), transparent);
+  pointer-events: none;
+  transform: translateX(-140%);
+}
+
+.rise .phase-shine {
+  animation: phase-pop 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.rise .phase-shine::after {
+  animation: phase-gleam 1.25s ease-out 0.4s both;
+}
+
+@keyframes phase-pop {
   0% {
     opacity: 0;
     transform: scale(0.82);
   }
-  65% {
+  62% {
     opacity: 1;
-    transform: scale(1.045);
+    transform: scale(1.05);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: none;
   }
 }
 
-@keyframes hero-phone-in {
+@keyframes phase-gleam {
   from {
-    opacity: 0;
-    transform: translate3d(62vw, 0, 0);
+    transform: translateX(-140%);
   }
   to {
+    transform: translateX(340%);
+  }
+}
+
+.rise-ltr {
+  opacity: 0;
+}
+
+.rise .rise-ltr {
+  animation: rise-ltr 1.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes rise-ltr {
+  from {
+    opacity: 0;
+    transform: translate3d(-48px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise-ttb {
+  opacity: 0;
+}
+
+.rise .rise-ttb {
+  animation: rise-ttb 1.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes rise-ttb {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -36px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise-rtl {
+  opacity: 0;
+}
+
+.rise .rise-rtl {
+  animation: rise-rtl 1.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes rise-rtl {
+  from {
+    opacity: 0;
+    transform: translate3d(48px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise-bottom {
+  opacity: 0;
+}
+
+.rise .rise-bottom {
+  animation: rise-bottom 1.65s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+@keyframes rise-bottom {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 36px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal-ltr {
+  clip-path: inset(0 100% 0 0);
+}
+
+.rise .reveal-ltr {
+  animation: reveal-ltr 1.65s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@keyframes reveal-ltr {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.hero-pop-up {
+  animation: hero-pop-up 1.65s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+@keyframes hero-pop-up {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0) scale(0.96);
+  }
+  70% {
+    opacity: 1;
+    transform: translate3d(0, -3px, 0) scale(1.02);
+  }
+  100% {
     opacity: 1;
     transform: none;
   }

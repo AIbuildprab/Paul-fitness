@@ -111,14 +111,14 @@ export function Footer() {
       </div>
 
       <div className="bg-ink-2">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-4 text-sm text-white/80 sm:flex-row sm:px-8">
-          <p>© {new Date().getFullYear()} Mindfull Food Fitness. All rights reserved.</p>
-          <div className="flex gap-5">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-2 text-xs text-white/80 sm:flex-row sm:px-8">
+          <p>© {new Date().getFullYear()} Mindfull Food Fitness</p>
+          <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-gold">
-              Privacy Policy
+              Privacy
             </Link>
             <Link href="/terms" className="hover:text-gold">
-              Terms & Conditions
+              Terms
             </Link>
           </div>
         </div>
