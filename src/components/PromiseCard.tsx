@@ -65,10 +65,14 @@ export function PromiseCard({ children }: { children: ReactNode }) {
     <div className="relative mx-auto max-w-6xl">
       <div className="grid overflow-hidden rounded-[22px] lg:grid-cols-2">
         {children}
-        <div ref={panel} className="promise-panel relative min-h-[420px] overflow-hidden bg-black lg:min-h-0">
+        <div ref={panel} className="promise-panel relative order-first h-[340px] overflow-hidden bg-black sm:h-[400px] lg:order-none lg:h-auto lg:min-h-0">
           <div
             aria-hidden
-            className="absolute inset-0 bg-[url('/mff/promise-bg.webp')] bg-cover bg-top lg:hidden"
+            className="absolute inset-0 bg-[url('/mff/promise-bg.webp')] bg-cover bg-right lg:hidden"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black to-transparent lg:hidden"
           />
           <div
             aria-hidden

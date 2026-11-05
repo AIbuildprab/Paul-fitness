@@ -129,14 +129,14 @@ export function Header() {
           solid ? "bg-black" : "bg-black/[0.07]"
         }`}
       >
-        <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-4 px-4 py-5 lg:py-4">
+        <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-4 px-4 py-3 lg:py-3.5">
           <Link href="/#home" onClick={close} aria-label="Mindfull Food Fitness — home" className="shrink-0">
             <Image
               src="/brand/Logo_Inverted.png"
               alt="Mindfull Food Fitness"
-              width={248}
-              height={60}
-              className="h-12 w-auto lg:h-[46px]"
+              width={132}
+              height={32}
+              className="h-7 w-auto lg:h-8"
               style={{ width: "auto" }}
               priority
             />

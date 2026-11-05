@@ -20,8 +20,8 @@ export function HeroMotion() {
         className="absolute inset-0 opacity-[0.88]"
         style={{ backgroundImage: "linear-gradient(135deg, #000000 55%, #00000070 100%)" }}
       />
-      <div className="relative mx-auto grid w-full max-w-[1200px] items-center gap-10 px-4 pb-16 lg:grid-cols-[3fr_2fr] lg:pb-16">
-          <div className="hero-pop text-center lg:text-left">
+      <div className="relative mx-auto w-full max-w-[1200px] px-4 pb-16 lg:pb-16">
+          <div className="hero-pop mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
             <Kicker
               className="!text-white justify-center lg:justify-start"
               iconClassName="h-8 w-8"
@@ -65,37 +65,6 @@ export function HeroMotion() {
               >
                 See What’s Included
               </a>
-            </div>
-          </div>
-          <div>
-            <div className="hero-phone-in relative mx-auto h-[280px] w-[136px] shrink-0 sm:h-[480px] sm:w-[236px]">
-            <div
-              aria-hidden
-              className="absolute z-0 rounded-[1.6rem] bg-black sm:rounded-[1.85rem]"
-              style={{ left: "4.5%", right: "4.5%", top: "1.4%", bottom: "1.4%" }}
-            />
-            <div
-              className="absolute z-20 overflow-hidden rounded-b-[1.35rem] bg-black sm:rounded-b-[1.6rem]"
-              style={{ left: "6%", right: "6%", top: "5%", bottom: "2.5%" }}
-            >
-              <video
-                className="absolute inset-x-0 top-1/2 aspect-[9/16] w-full -translate-y-1/2 bg-black object-cover"
-                src="/mff/Hero.mp4"
-                poster="/mff/fallback.webp"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-              />
-            </div>
-            <img
-              src="/mff/iphone-13-e1742838277438.png"
-              alt=""
-              width={332}
-              height={675}
-              className="pointer-events-none absolute inset-0 z-10 h-full w-full"
-            />
             </div>
           </div>
         </div>

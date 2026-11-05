@@ -30,21 +30,37 @@ export default function HomePage() {
       <section id="about" className="bg-white py-16 sm:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-2">
           <Reveal from="left" className="relative mx-auto w-full max-w-md">
-            <Image
-              src="/mff/download-4.webp"
-              alt="Paul McGann coaching"
-              width={800}
-              height={1000}
-              className="reveal-ltr absolute top-8 left-0 hidden w-36 rounded-2xl object-cover shadow-lg sm:block"
-            />
-            <Image
-              src="/mff/download-3-2.webp"
-              alt="Paul McGann, coach at Mindfull Food Fitness"
-              width={1000}
-              height={1500}
-              className="mx-auto w-full rounded-2xl object-cover sm:ml-auto sm:w-[78%]"
-            />
-            <div className="rise-ltr absolute bottom-6 left-0 flex items-center gap-3 rounded-2xl bg-gold px-4 py-3 text-white shadow-lg">
+            <div className="relative mx-auto h-[440px] w-[210px] sm:h-[520px] sm:w-[248px]">
+              <div
+                aria-hidden
+                className="absolute z-0 rounded-[1.6rem] bg-black sm:rounded-[1.85rem]"
+                style={{ left: "4.5%", right: "4.5%", top: "1.4%", bottom: "1.4%" }}
+              />
+              <div
+                className="absolute z-20 overflow-hidden rounded-b-[1.35rem] bg-black sm:rounded-b-[1.6rem]"
+                style={{ left: "6%", right: "6%", top: "5%", bottom: "2.5%" }}
+              >
+                <video
+                  className="absolute inset-x-0 top-1/2 aspect-[9/16] w-full -translate-y-1/2 bg-black object-cover"
+                  src="/mff/Hero.mp4"
+                  poster="/mff/fallback.webp"
+                  aria-label="Paul McGann introducing Mindfull Food Fitness"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                />
+              </div>
+              <img
+                src="/mff/iphone-13-e1742838277438.png"
+                alt=""
+                width={332}
+                height={675}
+                className="pointer-events-none absolute inset-0 z-10 h-full w-full"
+              />
+            </div>
+            <div className="rise-ltr absolute bottom-2 left-0 z-30 flex items-center gap-3 rounded-2xl bg-gold px-4 py-3 text-white shadow-lg sm:bottom-6">
               <Image src="/mff/muscle.png" alt="" width={40} height={40} className="h-10 w-10" />
               <p>
                 <span className="block text-2xl font-black leading-none">17+</span>
@@ -58,7 +74,7 @@ export default function HomePage() {
               iconClassName="h-8 w-8"
               style={{ fontSize: "1.5rem", lineHeight: "2rem", gap: "0.75rem" }}
             >
-              About Us
+              About Paul
             </Kicker>
             <h2 className="rise-rtl mt-3 text-4xl font-black sm:text-5xl">
               The Story <span className="text-gold">Behind MFF</span>
@@ -118,7 +134,7 @@ export default function HomePage() {
               </a>
             </div>
           </Reveal>
-          <Reveal from="right">
+          <Reveal from="right" className="order-first lg:order-none">
             <div className="rise-rtl relative pr-3.5 pb-3.5 sm:pr-4 sm:pb-4">
               <div
                 aria-hidden
@@ -570,7 +586,7 @@ export default function HomePage() {
 
       <section id="promise" className="bg-white px-4 py-16 sm:px-8 sm:py-[70px]">
         <PromiseCard>
-          <div className="relative z-10 bg-black px-5 py-10 text-white sm:px-[60px] sm:py-[70px]">
+          <div className="relative z-10 bg-black px-5 pt-6 pb-10 text-white sm:px-[60px] sm:py-[70px]">
             <h2 className="text-3xl leading-tight font-bold sm:text-4xl sm:leading-[50px]">
               The MFF <span className="text-gold">Promise</span>
             </h2>
@@ -636,6 +652,7 @@ export default function HomePage() {
               sizes="(min-width: 1024px) 400px, 100vw"
               className="object-cover object-top"
             />
+            <div className="absolute inset-0 bg-black/35 lg:bg-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-7 text-center sm:p-8 lg:text-left">
               <h2 className="text-[26px] leading-[1.35] font-semibold">

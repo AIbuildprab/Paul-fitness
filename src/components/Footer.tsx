@@ -31,9 +31,9 @@ export function Footer() {
             <Image
               src="/brand/Logo_Inverted.png"
               alt="Mindfull Food Fitness"
-              width={180}
-              height={44}
-              className="h-11 w-auto"
+              width={116}
+              height={28}
+              className="h-7 w-auto"
               style={{ width: "auto" }}
             />
           </Link>
