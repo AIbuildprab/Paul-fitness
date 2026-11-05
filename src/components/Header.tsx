@@ -129,7 +129,7 @@ export function Header() {
           solid ? "bg-black" : "bg-black/[0.07]"
         }`}
       >
-        <div className="mx-auto flex w-full max-w-[1200px] items-center gap-4 px-4 py-5 lg:py-4">
+        <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-4 px-4 py-5 lg:py-4">
           <Link href="/#home" onClick={close} aria-label="Mindfull Food Fitness — home" className="shrink-0">
             <Image
               src="/brand/Logo_Inverted.png"
@@ -174,7 +174,7 @@ export function Header() {
 
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 lg:hidden"
+            className="ml-auto inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/20 lg:ml-0 lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
