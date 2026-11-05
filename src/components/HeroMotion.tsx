@@ -69,7 +69,15 @@ export function HeroMotion() {
           </div>
           <div>
             <div className="hero-phone-in relative mx-auto h-[420px] w-[206px] shrink-0 sm:h-[480px] sm:w-[236px]">
-            <div className="absolute overflow-hidden bg-black" style={{ left: "6%", right: "6%", top: "5%", bottom: "2.5%" }}>
+            <div
+              aria-hidden
+              className="absolute z-0 rounded-[1.6rem] bg-black sm:rounded-[1.85rem]"
+              style={{ left: "4.5%", right: "4.5%", top: "1.4%", bottom: "1.4%" }}
+            />
+            <div
+              className="absolute z-20 overflow-hidden rounded-b-[1.35rem] bg-black sm:rounded-b-[1.6rem]"
+              style={{ left: "6%", right: "6%", top: "5%", bottom: "2.5%" }}
+            >
               <video
                 className="absolute inset-x-0 top-1/2 aspect-[9/16] w-full -translate-y-1/2 bg-black object-cover"
                 src="/mff/Hero.mp4"
@@ -78,6 +86,7 @@ export function HeroMotion() {
                 muted
                 loop
                 playsInline
+                controls
               />
             </div>
             <img
