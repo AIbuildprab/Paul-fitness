@@ -148,7 +148,7 @@ export function ReviewCarousel() {
 
   return (
     <div
-      className="mt-10 flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-6"
+      className="mt-10 flex w-full flex-col items-stretch gap-8 lg:flex-row lg:items-center lg:gap-6"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -160,7 +160,7 @@ export function ReviewCarousel() {
         href={site.googleReviews}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-40 shrink-0 text-center text-white"
+        className="w-40 shrink-0 self-center text-center text-white"
       >
         <p className="text-lg font-extrabold tracking-wide">EXCELLENT</p>
         <span className="mt-2 inline-flex justify-center">
@@ -179,7 +179,7 @@ export function ReviewCarousel() {
         </p>
       </a>
 
-      <div className="relative min-w-0 flex-1">
+      <div className="relative w-full min-w-0 lg:w-auto lg:flex-1">
         {index > 0 ? (
           <button
             type="button"

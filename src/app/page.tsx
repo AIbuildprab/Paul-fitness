@@ -42,7 +42,7 @@ export default function HomePage() {
               alt="Paul McGann, coach at Mindfull Food Fitness"
               width={1000}
               height={1500}
-              className="ml-auto w-[78%] rounded-2xl object-cover"
+              className="mx-auto w-full rounded-2xl object-cover sm:ml-auto sm:w-[78%]"
             />
             <div className="rise-ltr absolute bottom-6 left-0 flex items-center gap-3 rounded-2xl bg-gold px-4 py-3 text-white shadow-lg">
               <Image src="/mff/muscle.png" alt="" width={40} height={40} className="h-10 w-10" />
@@ -52,9 +52,9 @@ export default function HomePage() {
               </p>
             </div>
           </Reveal>
-          <Reveal from="right">
+          <Reveal from="right" className="text-center lg:text-left">
             <Kicker
-              className="rise-ttb"
+              className="rise-ttb justify-center lg:justify-start"
               iconClassName="h-8 w-8"
               style={{ fontSize: "1.5rem", lineHeight: "2rem", gap: "0.75rem" }}
             >
@@ -80,7 +80,7 @@ export default function HomePage() {
                 keep.
               </p>
             </div>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
               <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={btnOutline}>
                 Book a Free Strategy Call
               </a>
@@ -94,9 +94,9 @@ export default function HomePage() {
 
       <section id="programme" className="bg-black py-16 text-white sm:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr]">
-          <Reveal from="left">
+          <Reveal from="left" className="text-center lg:text-left">
             <Kicker
-              className="!text-white"
+              className="!text-white justify-center lg:justify-start"
               iconClassName="h-8 w-8"
               style={{ fontSize: "1.5rem", lineHeight: "2rem", gap: "0.75rem" }}
             >
@@ -112,9 +112,11 @@ export default function HomePage() {
             <div className="mt-8">
               <PhaseTabs />
             </div>
-            <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={`${btnGold} mt-8`}>
-              Book a Free Strategy Call
-            </a>
+            <div className="mt-8 flex justify-center lg:justify-start">
+              <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={btnGold}>
+                Book a Free Strategy Call
+              </a>
+            </div>
           </Reveal>
           <Reveal from="right">
             <div className="rise-rtl relative pr-3.5 pb-3.5 sm:pr-4 sm:pb-4">
@@ -168,8 +170,8 @@ export default function HomePage() {
               className="w-full rounded-2xl object-cover"
             />
           </Reveal>
-          <Reveal from="up" delay={80}>
-            <Kicker iconClassName="h-6 w-6" style={{ fontSize: "1.3125rem", lineHeight: "1.875rem", gap: "0.75rem" }}>
+          <Reveal from="up" delay={80} className="text-center lg:text-left">
+            <Kicker className="justify-center lg:justify-start" iconClassName="h-6 w-6" style={{ fontSize: "1.3125rem", lineHeight: "1.875rem", gap: "0.75rem" }}>
               MFF Nutrition
             </Kicker>
             <h2 className="mt-3 text-4xl font-black">
@@ -182,8 +184,8 @@ export default function HomePage() {
             <p className="mt-4 font-semibold text-gold">You’ll learn how to:</p>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {nutritionPoints.map((point) => (
-                <article key={point.title} className="rounded-2xl bg-white p-4 shadow-sm">
-                  <Image src={point.icon} alt="" width={48} height={48} className="h-12 w-12" />
+                <article key={point.title} className="rounded-2xl bg-white p-4 text-center shadow-sm lg:text-left">
+                  <Image src={point.icon} alt="" width={48} height={48} className="mx-auto h-12 w-12 lg:mx-0" />
                   <h3 className="mt-3 text-base font-semibold">{point.title}</h3>
                 </article>
               ))}
@@ -198,13 +200,13 @@ export default function HomePage() {
 
       <section id="whats-included" className="bg-black py-8 text-white sm:py-10">
         <div className="mx-auto grid max-w-6xl items-center gap-6 px-5 sm:px-8 lg:grid-cols-2">
-          <Reveal from="left">
-            <Kicker>Included</Kicker>
+          <Reveal from="left" className="text-center lg:text-left">
+            <Kicker className="justify-center lg:justify-start">Included</Kicker>
             <h2 className="mt-3 text-4xl font-black">
               What&apos;s <span className="text-gold">Included</span>
             </h2>
             <p className="mt-3 text-white/70">Included in every package:</p>
-            <div className="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+            <div className="mt-4 grid gap-x-8 gap-y-3 text-left sm:grid-cols-2">
               {[included.slice(0, 4), included.slice(4)].map((column) => (
                 <ul key={column[0]} className="space-y-3">
                   {column.map((item) => (
@@ -221,14 +223,11 @@ export default function HomePage() {
                 </ul>
               ))}
             </div>
-            <a
-              href={site.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${btnGold} mt-6`}
-            >
-              Book a Free Strategy Call
-            </a>
+            <div className="mt-6 flex justify-center lg:justify-start">
+              <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={btnGold}>
+                Book a Free Strategy Call
+              </a>
+            </div>
           </Reveal>
           <Reveal from="right" className="mx-auto w-full max-w-md">
             <div className="relative h-[340px] overflow-hidden rounded-2xl sm:h-[400px]">
@@ -247,9 +246,9 @@ export default function HomePage() {
       <section id="gallery" className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Kicker
-            className="justify-center"
-            iconClassName="h-12 w-12"
-            style={{ fontSize: "1.875rem", lineHeight: "2.25rem", gap: "0.75rem" }}
+            className="justify-center !text-lg sm:!text-[1.875rem] sm:!leading-9"
+            iconClassName="h-8 w-8 sm:h-12 sm:w-12"
+            style={{ gap: "0.75rem" }}
           >
             Gallery
           </Kicker>
@@ -281,7 +280,7 @@ export default function HomePage() {
           }}
         />
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-          <h2 className="text-center text-[40px] leading-[50px] font-bold">
+          <h2 className="text-center text-3xl leading-tight font-bold sm:text-[40px] sm:leading-[50px]">
             What <span className="text-gold">Clients Say</span>
           </h2>
           <a
@@ -434,16 +433,16 @@ export default function HomePage() {
         <Image src="/mff/gym.webp" alt="" fill className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 bg-black/[0.88]" />
         <div className="relative mx-auto grid max-w-6xl items-start gap-11 px-5 sm:px-8 lg:grid-cols-2">
-          <div>
+          <div className="text-center lg:text-left">
             <h2 className="text-3xl font-bold">
               1:1 In-Person <span className="text-gold">Personal Training</span>
             </h2>
-            <p className="mt-4 max-w-xl text-white">
+            <p className="mx-auto mt-4 max-w-xl text-white lg:mx-0">
               One-to-one personal training in Leicester, tailored to your goals with expert guidance, real-time form
               correction and focused accountability.
             </p>
             <div
-              className="mt-6 max-w-xl rounded-[15px] border border-white/55 border-l-4 px-4 py-4"
+              className="mx-auto mt-6 max-w-xl rounded-[15px] border border-white/55 border-l-4 px-4 py-4 text-left lg:mx-0"
               style={{ backgroundColor: "#A68D412B" }}
             >
               <Kicker>Train With Purpose</Kicker>
@@ -456,9 +455,9 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <div>
+          <div className="text-center lg:text-left">
             <h3 className="text-2xl font-bold">In-person sessions include</h3>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-4 space-y-2.5 text-left">
               {inPersonIncludes.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm text-white">
                   <span aria-hidden className="h-3.5 w-3.5 shrink-0 rounded-full border border-white" />
@@ -466,21 +465,23 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 flex max-w-md items-end gap-3 text-lg font-bold">
+            <div className="mx-auto mt-6 flex max-w-md items-end gap-3 text-lg font-bold lg:mx-0">
               <span>Per Session</span>
               <span aria-hidden className="mb-1.5 h-px flex-1 border-b border-dotted border-white/70" />
               <span className="text-gold">£40</span>
             </div>
             <p className="mt-1 text-sm text-white">10-session block — 20% discount.</p>
             <p className="mt-3 text-sm text-white/80 italic">Limited spaces available, subject to availability.</p>
-            <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={`${btnGold} mt-6`}>
-              Book a Free Strategy Call
-            </a>
+            <div className="mt-6 flex justify-center lg:justify-start">
+              <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className={btnGold}>
+                Book a Free Strategy Call
+              </a>
+            </div>
           </div>
         </div>
         <div className="relative mx-auto mt-16 grid max-w-6xl items-start gap-12 px-5 sm:px-8 lg:grid-cols-2">
-          <div>
-          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-gold text-gold">
+          <div className="text-center lg:text-left">
+          <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-gold text-gold lg:mx-0">
             <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.8">
               <rect x="2.5" y="5.5" width="19" height="13" rx="2" />
               <path d="M2.5 10h19" />
@@ -488,7 +489,7 @@ export default function HomePage() {
           </div>
           <p className="mt-4 text-sm font-semibold tracking-[0.16em] text-gold uppercase">Coaching client perk</p>
           <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Payment &amp; gym membership</h2>
-          <p className="mt-3 max-w-xl text-white/85">
+          <p className="mx-auto mt-3 max-w-xl text-white/85 lg:mx-0">
             One-to-one package clients get a reduced gym rate at Fitness Factory, on the same floor you train on.
           </p>
           <div className="mt-6 rounded-2xl border border-gold/70 px-5 py-6 sm:px-7">
@@ -503,8 +504,8 @@ export default function HomePage() {
                 Save up to £15/mo
               </span>
             </div>
-            <h3 className="mt-5 text-2xl font-bold">Discounted gym membership</h3>
-            <p className="mt-1 text-white/75">
+            <h3 className="mt-5 text-2xl font-bold lg:text-left">Discounted gym membership</h3>
+            <p className="mt-1 text-white/75 lg:text-left">
               Standard walk-in rate <span className="line-through">£50/month</span>
             </p>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
@@ -524,8 +525,8 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-        <div>
-          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-gold text-gold">
+        <div className="text-center lg:text-left">
+          <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-gold text-gold lg:mx-0">
             <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.8">
               <path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z" />
               <circle cx="12" cy="10" r="2.2" />
@@ -560,7 +561,7 @@ export default function HomePage() {
               <path d="M17 13.5V19a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h5.5" />
             </svg>
           </a>
-          <p className="mt-3 text-sm text-white/70">
+          <p className="mt-3 text-center text-sm text-white/70 lg:text-left">
             Tap Directions in Google Maps and choose your starting point.
           </p>
         </div>
@@ -569,8 +570,8 @@ export default function HomePage() {
 
       <section id="promise" className="bg-white px-4 py-16 sm:px-8 sm:py-[70px]">
         <PromiseCard>
-          <div className="relative z-10 bg-black px-8 py-12 text-white sm:px-[60px] sm:py-[70px]">
-            <h2 className="text-4xl leading-[50px] font-bold">
+          <div className="relative z-10 bg-black px-5 py-10 text-white sm:px-[60px] sm:py-[70px]">
+            <h2 className="text-3xl leading-tight font-bold sm:text-4xl sm:leading-[50px]">
               The MFF <span className="text-gold">Promise</span>
             </h2>
             <p className="mt-4 max-w-xl leading-relaxed">
@@ -627,7 +628,7 @@ export default function HomePage() {
 
       <section id="contact" className="bg-white px-4 py-16 sm:px-8 sm:py-20">
         <div className="mx-auto grid max-w-6xl overflow-hidden rounded-[20px] bg-gold text-white shadow-[0_0_40px_rgba(0,0,0,0.06)] lg:grid-cols-[minmax(280px,38%)_1fr]">
-          <div className="relative h-full min-h-[420px] lg:min-h-0">
+          <div className="relative h-full min-h-[260px] sm:min-h-[420px] lg:min-h-0">
             <Image
               src="/mff/download-3.webp"
               alt="Paul McGann"
@@ -636,14 +637,14 @@ export default function HomePage() {
               className="object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-7 sm:p-8">
+            <div className="absolute inset-x-0 bottom-0 p-7 text-center sm:p-8 lg:text-left">
               <h2 className="text-[26px] leading-[1.35] font-semibold">
                 Ready To Rebuild Your
                 <br />
                 Body & Life?
               </h2>
               <div className="my-4 h-px w-full bg-white/30" />
-              <a href={`mailto:${site.email}`} className="flex items-center gap-3">
+              <a href={`mailto:${site.email}`} className="flex items-center justify-center gap-3 text-left lg:justify-start">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center text-gold">
                   <svg viewBox="0 0 24 24" className="h-9 w-9" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.4">
                     <path strokeLinejoin="round" d="M3.5 7.5h17v11h-17z" />
@@ -657,15 +658,17 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-          <div className="px-5 py-8 sm:px-10 sm:py-12 lg:px-12">
+          <div className="px-5 py-8 text-center sm:px-10 sm:py-12 lg:px-12 lg:text-left">
             <h2 className="text-4xl leading-tight font-bold">
               Get in <span className="text-black">Touch</span>
             </h2>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/95 sm:text-base">
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/95 sm:text-base lg:mx-0">
               Only a few spaces open each quarter, so every client gets my full attention. Apply below — or book a free
               call if you’d rather talk first.
             </p>
-            <ContactForm />
+            <div className="text-left">
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>

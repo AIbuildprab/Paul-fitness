@@ -92,19 +92,19 @@ export function Header() {
 
   return (
     <>
-      <div className="bg-gold text-white">
+      <div className="hidden bg-gold text-white lg:block">
         <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-4 px-4 py-2">
           <a
             href={`mailto:${site.email}`}
-            className="inline-flex min-h-8 items-center gap-2 font-[family-name:var(--font-open-sans)] text-sm"
+            className="inline-flex min-h-8 min-w-0 items-center gap-2 font-[family-name:var(--font-open-sans)] text-xs sm:text-sm"
           >
-            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden>
+            <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" aria-hidden>
               <path d="M3 6.5h18v11H3v-11Z" stroke="currentColor" strokeWidth="1.6" />
               <path d="m4 7 8 6 8-6" stroke="currentColor" strokeWidth="1.6" />
             </svg>
-            {site.email}
+            <span className="truncate">{site.email}</span>
           </a>
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             <Social href={site.facebook} label="Facebook">
               <svg viewBox="0 0 512 512" className="h-3.5 w-3.5" fill="currentColor" aria-hidden>
                 <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />

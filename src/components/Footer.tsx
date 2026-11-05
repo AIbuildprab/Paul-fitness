@@ -25,9 +25,9 @@ export function Footer() {
 
   return (
     <footer className="pb-cta bg-black text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 lg:grid-cols-[minmax(0,1.5fr)_auto_minmax(0,1fr)]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 text-center sm:px-8 lg:grid-cols-[minmax(0,1.5fr)_auto_minmax(0,1fr)] lg:text-left">
         <div>
-          <Link href="/#home">
+          <Link href="/#home" className="inline-block">
             <Image
               src="/brand/Logo_Inverted.png"
               alt="Mindfull Food Fitness"
@@ -37,13 +37,13 @@ export function Footer() {
               style={{ width: "auto" }}
             />
           </Link>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-white/75">{site.footerStory}</p>
+          <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-white/75 lg:mx-0">{site.footerStory}</p>
         </div>
 
         <div>
           <h2 className="text-lg font-extrabold text-gold">Quick Links</h2>
-          <div className="mt-3 h-px w-10 bg-gold" />
-          <div className="mt-4 grid w-max grid-cols-2 gap-x-10">
+          <div className="mx-auto mt-3 h-px w-10 bg-gold lg:mx-0" />
+          <div className="mx-auto mt-4 grid w-max grid-cols-2 gap-x-10 text-left lg:mx-0">
             <ul className="space-y-0.5 text-sm text-white/85">
               {left.map((item) => (
                 <li key={item.href}>
@@ -67,8 +67,8 @@ export function Footer() {
 
         <div>
           <h2 className="text-lg font-extrabold text-gold">Contact Info</h2>
-          <div className="mt-3 h-px w-10 bg-gold" />
-          <ul className="mt-4 space-y-3 text-sm text-white/85">
+          <div className="mx-auto mt-3 h-px w-10 bg-gold lg:mx-0" />
+          <ul className="mx-auto mt-4 max-w-xs space-y-3 text-left text-sm text-white/85 lg:mx-0">
             <li className="flex items-start gap-3">
               <svg viewBox="0 0 24 24" className="mt-0.5 h-4 w-4 shrink-0" fill="none" aria-hidden>
                 <path
@@ -90,7 +90,7 @@ export function Footer() {
               </a>
             </li>
           </ul>
-          <div className="mt-5 flex gap-3">
+          <div className="mt-5 flex justify-center gap-3 lg:justify-start">
             <Social href={site.facebook} label="Facebook">
               <svg viewBox="0 0 512 512" className="h-4 w-4" fill="currentColor" aria-hidden>
                 <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />

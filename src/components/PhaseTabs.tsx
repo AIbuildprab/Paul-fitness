@@ -9,7 +9,7 @@ export function PhaseTabs() {
 
   return (
     <div>
-      <div role="tablist" aria-label="Programme phases" className="phase-shine flex flex-wrap gap-2">
+      <div role="tablist" aria-label="Programme phases" className="phase-shine flex flex-wrap justify-center gap-2 lg:justify-start">
         {phases.map((item, index) => {
           const selected = index === active;
           return (

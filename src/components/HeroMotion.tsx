@@ -6,7 +6,7 @@ export function HeroMotion() {
   return (
     <section
       id="home"
-      className="relative isolate -mt-[88px] min-h-[calc(100dvh-2.25rem)] overflow-hidden bg-black pt-36 text-white lg:-mt-[79px] lg:min-h-[calc(100dvh-2.25rem)] lg:pt-[144px]"
+      className="relative isolate -mt-[88px] overflow-hidden bg-black pt-32 text-white lg:-mt-[79px] lg:min-h-[calc(100dvh-2.25rem)] lg:pt-[144px]"
     >
       <Image
         src="/mff/hero-bg.webp"
@@ -21,18 +21,18 @@ export function HeroMotion() {
         style={{ backgroundImage: "linear-gradient(135deg, #000000 55%, #00000070 100%)" }}
       />
       <div className="relative mx-auto grid w-full max-w-[1200px] items-center gap-10 px-4 pb-16 lg:grid-cols-[3fr_2fr] lg:pb-16">
-          <div className="hero-pop">
+          <div className="hero-pop text-center lg:text-left">
             <Kicker
-              className="!text-white"
+              className="!text-white justify-center lg:justify-start"
               iconClassName="h-8 w-8"
               style={{ fontSize: "1.5rem", lineHeight: "2rem", gap: "0.75rem" }}
             >
               Mindfull Food Fitness
             </Kicker>
-            <h1 className="hero-gold-in mt-4 text-[38px] leading-[50px] font-black sm:text-[42px] lg:text-[56px] lg:leading-[64px]">
+            <h1 className="hero-gold-in mt-4 text-[32px] leading-[1.15] font-black sm:text-[42px] sm:leading-[50px] lg:text-[56px] lg:leading-[64px]">
               The Last Coach <span className="text-gold">You&apos;ll Ever Need</span>
             </h1>
-            <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 font-[family-name:var(--font-open-sans)] text-[16px] leading-6 font-normal text-white">
+            <ul className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-2 font-[family-name:var(--font-open-sans)] text-[16px] leading-6 font-normal text-white lg:justify-start">
               {["Mindset", "Nutrition", "Training"].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <svg viewBox="0 0 512 512" className="h-4 w-4 shrink-0" aria-hidden fill="#A68D41">
@@ -42,7 +42,7 @@ export function HeroMotion() {
                 </li>
               ))}
             </ul>
-            <div className="hero-pop-up mt-5 max-w-[612px] space-y-3 font-[family-name:var(--font-open-sans)] text-[17px] leading-[26px] font-normal text-white">
+            <div className="hero-pop-up mx-auto mt-5 max-w-[612px] space-y-3 font-[family-name:var(--font-open-sans)] text-[15px] leading-6 font-normal text-white sm:text-[17px] sm:leading-[26px] lg:mx-0">
               <p>Stop chasing quick fixes. Start building a body you understand.</p>
               <p>
                 No gimmicks. No guesswork. Just expert coaching, real food, smart training and the knowledge to own
@@ -50,25 +50,25 @@ export function HeroMotion() {
               </p>
               <p>I’ll help you transform your body — then teach you how to keep it.</p>
             </div>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href={site.bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-center justify-center rounded-full border-2 border-gold bg-gold px-6 py-2.5 font-[family-name:var(--font-open-sans)] text-[15px] font-medium text-white transition hover:bg-transparent hover:text-gold"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-full border-2 border-gold bg-gold px-6 py-2.5 font-[family-name:var(--font-open-sans)] text-[15px] font-medium text-white transition hover:bg-transparent hover:text-gold sm:w-auto"
               >
                 Book a Free Strategy Call
               </a>
               <a
                 href="#whats-included"
-                className="inline-flex min-h-11 items-center justify-center rounded-full bg-white px-6 py-2.5 font-[family-name:var(--font-open-sans)] text-[15px] font-medium text-black transition hover:bg-paper"
+                className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-white px-6 py-2.5 font-[family-name:var(--font-open-sans)] text-[15px] font-medium text-black transition hover:bg-paper sm:w-auto"
               >
                 See What’s Included
               </a>
             </div>
           </div>
           <div>
-            <div className="hero-phone-in relative mx-auto h-[420px] w-[206px] shrink-0 sm:h-[480px] sm:w-[236px]">
+            <div className="hero-phone-in relative mx-auto h-[280px] w-[136px] shrink-0 sm:h-[480px] sm:w-[236px]">
             <div
               aria-hidden
               className="absolute z-0 rounded-[1.6rem] bg-black sm:rounded-[1.85rem]"
@@ -86,7 +86,7 @@ export function HeroMotion() {
                 muted
                 loop
                 playsInline
-                controls
+                preload="metadata"
               />
             </div>
             <img
