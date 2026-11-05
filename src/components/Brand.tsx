@@ -10,13 +10,11 @@ export function Dumbbell({ className = "h-4 w-4" }: { className?: string }) {
 
 export function Kicker({
   children,
-  light = false,
   className = "",
   iconClassName = "h-4 w-4",
   style,
 }: {
   children: ReactNode;
-  light?: boolean;
   className?: string;
   iconClassName?: string;
   style?: CSSProperties;
@@ -24,7 +22,7 @@ export function Kicker({
   return (
     <p
       style={style}
-      className={`flex items-center gap-2 text-sm font-semibold ${light ? "text-gold" : "text-gold"} ${className}`}
+      className={`flex items-center gap-2 text-sm font-semibold text-gold ${className}`}
     >
       <Dumbbell className={iconClassName} />
       {children}
@@ -37,6 +35,3 @@ export const btnGold =
 
 export const btnOutline =
   "inline-flex min-h-11 items-center justify-center rounded-full border border-gold bg-transparent px-7 py-3 text-sm font-semibold text-gold transition hover:bg-gold hover:text-white";
-
-export const btnWhite =
-  "inline-flex min-h-12 items-center justify-center rounded-full bg-white px-[30px] py-[15px] font-[family-name:var(--font-open-sans)] text-base font-medium text-black transition hover:bg-paper";

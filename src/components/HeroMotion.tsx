@@ -22,7 +22,7 @@ export function HeroMotion() {
       />
       <div className="relative mx-auto grid w-full max-w-[1200px] items-center gap-10 px-4 pb-16 lg:grid-cols-[3fr_2fr] lg:pb-16">
           <div className="hero-pop">
-            <Kicker light>Mindfull Food Fitness</Kicker>
+            <Kicker>Mindfull Food Fitness</Kicker>
             <h1 className="mt-4 text-[38px] leading-[50px] font-black sm:text-[42px] lg:text-[56px] lg:leading-[64px]">
               The Last Coach <span className="text-gold">You&apos;ll Ever Need</span>
             </h1>

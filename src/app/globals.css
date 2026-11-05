@@ -69,15 +69,6 @@ body {
   padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
 }
 
-.no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
 .plan-scroll {
   scrollbar-width: thin;
   scrollbar-color: var(--gold) rgba(166, 141, 65, 0.14);
@@ -117,6 +108,7 @@ body {
 }
 
 .promise-photo {
+  position: absolute;
   top: 0;
   left: calc(var(--promise-left, 0px) * -1);
   width: 100vw;
@@ -144,24 +136,12 @@ body {
   animation-name: rise-up;
 }
 
-.rise-down {
-  animation-name: rise-down;
-}
-
 .rise-left {
   animation-name: rise-left;
 }
 
 .rise-right {
   animation-name: rise-right;
-}
-
-.rise-in {
-  animation-name: rise-in;
-}
-
-.rise-zoom {
-  animation-name: rise-zoom;
 }
 
 .rise.rise-pop {
@@ -174,17 +154,6 @@ body {
   from {
     opacity: 0;
     transform: translate3d(0, 36px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes rise-down {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -28px, 0);
   }
   to {
     opacity: 1;
@@ -207,26 +176,6 @@ body {
   from {
     opacity: 0;
     transform: translate3d(40px, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes rise-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes rise-zoom {
-  from {
-    opacity: 0;
-    transform: scale(0.94);
   }
   to {
     opacity: 1;
